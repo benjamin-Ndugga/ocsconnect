@@ -1024,6 +1024,7 @@ public class OCSWebMethods {
         requestHeader.setSequenceId("1");
         requestHeader.setRequestType(RequestHeaderRequestType.Event);
         requestHeader.setOperatorID(operatorId);
+        
 
         SessionEntityType sessionEntityType = new SessionEntityType();
         sessionEntityType.setName(USER);
