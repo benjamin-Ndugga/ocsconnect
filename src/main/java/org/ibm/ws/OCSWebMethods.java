@@ -45,14 +45,14 @@ public class OCSWebMethods {
      * @param msisdn
      * @param modifyAcctFeeList
      * @param operatorId
-     * @param serNo
+     * @param serialNo
      * @return
      * @throws RemoteException
      */
-    public AdjustAccountResultMsg adjustAccount(String msisdn, ModifyAcctFeeType[] modifyAcctFeeList, String operatorId, String serNo) throws RemoteException {
+    public AdjustAccountResultMsg adjustAccount(String msisdn, ModifyAcctFeeType[] modifyAcctFeeList, String operatorId, String serialNo) throws RemoteException {
         AdjustAccountRequestMsg adjustAccountRequestMsg = new AdjustAccountRequestMsg();
 
-        RequestHeader requestHeader = createRequestHeader("AdjustAccount", operatorId, serNo);
+        RequestHeader requestHeader = createRequestHeader("AdjustAccount", operatorId, serialNo);
 
         adjustAccountRequestMsg.setRequestHeader(requestHeader);
 
