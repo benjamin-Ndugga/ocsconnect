@@ -43,14 +43,13 @@ public class OCSWebMethods {
     /**
      *
      * @param msisdn
-     * @param accountType
+     * @param modifyAcctFeeList
      * @param operatorId
-     * @param amount
      * @param serNo
      * @return
      * @throws RemoteException
      */
-    public AdjustAccountResultMsg adjustAccount(String msisdn, String accountType, String operatorId, long amount, String serNo) throws RemoteException {
+    public AdjustAccountResultMsg adjustAccount(String msisdn, ModifyAcctFeeType[] modifyAcctFeeList, String operatorId, String serNo) throws RemoteException {
         AdjustAccountRequestMsg adjustAccountRequestMsg = new AdjustAccountRequestMsg();
 
         RequestHeader requestHeader = createRequestHeader("AdjustAccount", operatorId, serNo);
@@ -60,40 +59,6 @@ public class OCSWebMethods {
         AdjustAccountRequest adjustAccountRequest = new AdjustAccountRequest();
         adjustAccountRequest.setSubscriberNo(msisdn);
         adjustAccountRequest.setOperateType(2);
-
-        ModifyAcctFeeType modifyAcctFeeType = new ModifyAcctFeeType();
-        modifyAcctFeeType.setAccountType(accountType);
-        modifyAcctFeeType.setCurrAcctChgAmt(amount);
-
-        ModifyAcctFeeType[] modifyAcctFeeList = new ModifyAcctFeeType[]{modifyAcctFeeType};
-
-        //AdjustAccountRequestModifyAcctFeeList adjustAccountRequestModifyAcctFeeList = new AdjustAccountRequestModifyAcctFeeList();
-        //adjustAccountRequestModifyAcctFeeList.setModifyAcctFee(modifyAcctFeeList);
-        //adjustAccountRequest.setModifyAcctFeeList(adjustAccountRequestModifyAcctFeeList);
-        adjustAccountRequest.setModifyAcctFeeList(modifyAcctFeeList);
-
-        adjustAccountRequestMsg.setAdjustAccountRequest(adjustAccountRequest);
-
-        return portAccMgr.adjustAccount(adjustAccountRequestMsg);
-
-    }
-
-    public AdjustAccountResultMsg adjustAccount(String msisdn, String accountType, String operatorId, long amount) throws RemoteException {
-        AdjustAccountRequestMsg adjustAccountRequestMsg = new AdjustAccountRequestMsg();
-
-        RequestHeader requestHeader = createRequestHeader("AdjustAccount", operatorId);
-
-        adjustAccountRequestMsg.setRequestHeader(requestHeader);
-
-        AdjustAccountRequest adjustAccountRequest = new AdjustAccountRequest();
-        adjustAccountRequest.setSubscriberNo(msisdn);
-        adjustAccountRequest.setOperateType(2);
-
-        ModifyAcctFeeType modifyAcctFeeType = new ModifyAcctFeeType();
-        modifyAcctFeeType.setAccountType(accountType);
-        modifyAcctFeeType.setCurrAcctChgAmt(amount);
-
-        ModifyAcctFeeType[] modifyAcctFeeList = new ModifyAcctFeeType[]{modifyAcctFeeType};
 
         //AdjustAccountRequestModifyAcctFeeList adjustAccountRequestModifyAcctFeeList = new AdjustAccountRequestModifyAcctFeeList();
         //adjustAccountRequestModifyAcctFeeList.setModifyAcctFee(modifyAcctFeeList);
@@ -1024,7 +989,6 @@ public class OCSWebMethods {
         requestHeader.setSequenceId("1");
         requestHeader.setRequestType(RequestHeaderRequestType.Event);
         requestHeader.setOperatorID(operatorId);
-        
 
         SessionEntityType sessionEntityType = new SessionEntityType();
         sessionEntityType.setName(USER);
