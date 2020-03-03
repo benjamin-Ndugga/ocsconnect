@@ -57,11 +57,12 @@ import com.huawei.www.bme.cbsinterface.cbscommon.OperatorInfo;
 import com.huawei.www.bme.cbsinterface.cbscommon.OwnershipInfo;
 import com.huawei.www.bme.cbsinterface.cbscommon.RequestHeader;
 import com.huawei.www.bme.cbsinterface.cbscommon.SecurityInfo;
-import com.huawei.www.bme.cbsinterface.common.ResultHeader;
 import java.math.BigInteger;
 import java.rmi.RemoteException;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import javax.xml.rpc.ServiceException;
+import org.apache.commons.lang3.RandomStringUtils;
 
 /**
  *
@@ -545,13 +546,13 @@ public class OCSWebServices {
 
     private String generateRandomKey() {
 
-        char alphaNumeral[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
-            'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
-            'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-            'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-        Random random = new Random();
-
-        return alphaNumeral[random.nextInt(alphaNumeral.length)] + "" + random.nextLong();
+//        char alphaNumeral[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+//            'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+//            'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+//            'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+//        Random random = new Random();
+//        return alphaNumeral[random.nextInt(alphaNumeral.length)] + "" + random.nextLong();
+        return RandomStringUtils.random(2, true, false).toUpperCase() + "" + Math.abs(ThreadLocalRandom.current().nextLong(1, 999999999));
 
     }
 
@@ -570,5 +571,4 @@ public class OCSWebServices {
 //            Thread.sleep(1000);
 //        }
 //    }//end of main method
-    
 }//end of class
