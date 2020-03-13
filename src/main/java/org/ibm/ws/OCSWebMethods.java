@@ -7,7 +7,9 @@ import com.huawei.www.bme.cbsinterface.cbs.businessmgrmsg.*;
 import com.huawei.www.bme.cbsinterface.common.*;
 import java.rmi.RemoteException;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import javax.xml.rpc.ServiceException;
+import org.apache.commons.lang3.RandomStringUtils;
 
 /**
  * <em>Service Endpoint Interface To OCS 5.5</em>
@@ -965,17 +967,13 @@ public class OCSWebMethods {
         requestHeader.setSessionEntity(sessionEntityType);
 
         //randomise the serial number for each request
-        char alphaNumeral[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
-            'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
-            'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-            'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-        Random random = new Random();
+        String serial = RandomStringUtils.random(2, true, false).toUpperCase() + "" + Math.abs(ThreadLocalRandom.current().nextLong(1, 999999999));
 
         //set the serial thru a mutator Method
-        setSerialNo(alphaNumeral[random.nextInt(alphaNumeral.length)] + "" + random.nextLong());
+        setSerialNo(serial);
 
         //retrieve the serial thru a mutator Method
-        requestHeader.setSerialNo(getSerialNo());
+        requestHeader.setSerialNo(serial);
 
         return requestHeader;
     }
