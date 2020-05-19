@@ -7,8 +7,9 @@ import org.ibm.ws.OCSWebMethods;
 public class TestClass {
 
     public static void main(String[] args) throws ServiceException, RemoteException  {
+        
         OCSWebMethods methods = new OCSWebMethods("172.27.122.45", "9002");
-        QueryBalanceResultMsg queryBalance = methods.queryBalance("750376961", "test");
+        QueryBalanceResultMsg queryBalance = methods.queryBalance("750376961", "test23");
         
         com.huawei.www.bme.cbsinterface.common.ResultHeader resultHeader = queryBalance.getResultHeader();
         System.out.println(""+resultHeader.getResultCode());
