@@ -6,15 +6,15 @@ import org.ibm.ws.OCSWebMethods;
 
 public class TestClass {
 
-    public static void main(String[] args) throws ServiceException, RemoteException  {
-        
+    public static void main(String[] args) throws ServiceException, RemoteException {
+
         OCSWebMethods methods = new OCSWebMethods("172.27.122.45", "9002");
         QueryBalanceResultMsg queryBalance = methods.queryBalance("750376961", "test23");
-        
+
         com.huawei.www.bme.cbsinterface.common.ResultHeader resultHeader = queryBalance.getResultHeader();
-        System.out.println(""+resultHeader.getResultCode());
+        System.out.println("" + resultHeader.getResultCode());
     }
-    
+
 //    public static void main() throws ServiceException, RemoteException {
 //        OCSWebServices ocsWebServices = new OCSWebServices("172.27.122.45", "9002");
 //        DelGroupMemberResultMsg msg = ocsWebServices.delGroupMember("8286597954190843777", "759073039");
