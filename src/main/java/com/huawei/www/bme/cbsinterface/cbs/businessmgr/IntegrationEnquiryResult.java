@@ -4,10 +4,10 @@
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
-
 package com.huawei.www.bme.cbsinterface.cbs.businessmgr;
 
-public class IntegrationEnquiryResult  implements java.io.Serializable {
+public class IntegrationEnquiryResult implements java.io.Serializable {
+
     private com.huawei.www.bme.cbsinterface.cbs.businessmgr.BalanceRecordType[] balanceRecordList;
 
     private com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultSubscriberState subscriberState;
@@ -26,156 +26,142 @@ public class IntegrationEnquiryResult  implements java.io.Serializable {
     }
 
     public IntegrationEnquiryResult(
-           com.huawei.www.bme.cbsinterface.cbs.businessmgr.BalanceRecordType[] balanceRecordList,
-           com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultSubscriberState subscriberState,
-           com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultBillingCycleDate billingCycleDate,
-           com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultSubscriberInfo subscriberInfo,
-           com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultCumulativeItemListCumulativeItem[] cumulativeItemList,
-           com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultUserGroupListUserGroup[] userGroupList,
-           com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultSubAttachedInfo subAttachedInfo) {
-           this.balanceRecordList = balanceRecordList;
-           this.subscriberState = subscriberState;
-           this.billingCycleDate = billingCycleDate;
-           this.subscriberInfo = subscriberInfo;
-           this.cumulativeItemList = cumulativeItemList;
-           this.userGroupList = userGroupList;
-           this.subAttachedInfo = subAttachedInfo;
+            com.huawei.www.bme.cbsinterface.cbs.businessmgr.BalanceRecordType[] balanceRecordList,
+            com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultSubscriberState subscriberState,
+            com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultBillingCycleDate billingCycleDate,
+            com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultSubscriberInfo subscriberInfo,
+            com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultCumulativeItemListCumulativeItem[] cumulativeItemList,
+            com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultUserGroupListUserGroup[] userGroupList,
+            com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultSubAttachedInfo subAttachedInfo) {
+        this.balanceRecordList = balanceRecordList;
+        this.subscriberState = subscriberState;
+        this.billingCycleDate = billingCycleDate;
+        this.subscriberInfo = subscriberInfo;
+        this.cumulativeItemList = cumulativeItemList;
+        this.userGroupList = userGroupList;
+        this.subAttachedInfo = subAttachedInfo;
     }
-
 
     /**
      * Gets the balanceRecordList value for this IntegrationEnquiryResult.
-     * 
+     *
      * @return balanceRecordList
      */
     public com.huawei.www.bme.cbsinterface.cbs.businessmgr.BalanceRecordType[] getBalanceRecordList() {
         return balanceRecordList;
     }
 
-
     /**
      * Sets the balanceRecordList value for this IntegrationEnquiryResult.
-     * 
+     *
      * @param balanceRecordList
      */
     public void setBalanceRecordList(com.huawei.www.bme.cbsinterface.cbs.businessmgr.BalanceRecordType[] balanceRecordList) {
         this.balanceRecordList = balanceRecordList;
     }
 
-
     /**
      * Gets the subscriberState value for this IntegrationEnquiryResult.
-     * 
+     *
      * @return subscriberState
      */
     public com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultSubscriberState getSubscriberState() {
         return subscriberState;
     }
 
-
     /**
      * Sets the subscriberState value for this IntegrationEnquiryResult.
-     * 
+     *
      * @param subscriberState
      */
     public void setSubscriberState(com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultSubscriberState subscriberState) {
         this.subscriberState = subscriberState;
     }
 
-
     /**
      * Gets the billingCycleDate value for this IntegrationEnquiryResult.
-     * 
+     *
      * @return billingCycleDate
      */
     public com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultBillingCycleDate getBillingCycleDate() {
         return billingCycleDate;
     }
 
-
     /**
      * Sets the billingCycleDate value for this IntegrationEnquiryResult.
-     * 
+     *
      * @param billingCycleDate
      */
     public void setBillingCycleDate(com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultBillingCycleDate billingCycleDate) {
         this.billingCycleDate = billingCycleDate;
     }
 
-
     /**
      * Gets the subscriberInfo value for this IntegrationEnquiryResult.
-     * 
+     *
      * @return subscriberInfo
      */
     public com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultSubscriberInfo getSubscriberInfo() {
         return subscriberInfo;
     }
 
-
     /**
      * Sets the subscriberInfo value for this IntegrationEnquiryResult.
-     * 
+     *
      * @param subscriberInfo
      */
     public void setSubscriberInfo(com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultSubscriberInfo subscriberInfo) {
         this.subscriberInfo = subscriberInfo;
     }
 
-
     /**
      * Gets the cumulativeItemList value for this IntegrationEnquiryResult.
-     * 
+     *
      * @return cumulativeItemList
      */
     public com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultCumulativeItemListCumulativeItem[] getCumulativeItemList() {
         return cumulativeItemList;
     }
 
-
     /**
      * Sets the cumulativeItemList value for this IntegrationEnquiryResult.
-     * 
+     *
      * @param cumulativeItemList
      */
     public void setCumulativeItemList(com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultCumulativeItemListCumulativeItem[] cumulativeItemList) {
         this.cumulativeItemList = cumulativeItemList;
     }
 
-
     /**
      * Gets the userGroupList value for this IntegrationEnquiryResult.
-     * 
+     *
      * @return userGroupList
      */
     public com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultUserGroupListUserGroup[] getUserGroupList() {
         return userGroupList;
     }
 
-
     /**
      * Sets the userGroupList value for this IntegrationEnquiryResult.
-     * 
+     *
      * @param userGroupList
      */
     public void setUserGroupList(com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultUserGroupListUserGroup[] userGroupList) {
         this.userGroupList = userGroupList;
     }
 
-
     /**
      * Gets the subAttachedInfo value for this IntegrationEnquiryResult.
-     * 
+     *
      * @return subAttachedInfo
      */
     public com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultSubAttachedInfo getSubAttachedInfo() {
         return subAttachedInfo;
     }
 
-
     /**
      * Sets the subAttachedInfo value for this IntegrationEnquiryResult.
-     * 
+     *
      * @param subAttachedInfo
      */
     public void setSubAttachedInfo(com.huawei.www.bme.cbsinterface.cbs.businessmgr.IntegrationEnquiryResultSubAttachedInfo subAttachedInfo) {
@@ -183,43 +169,51 @@ public class IntegrationEnquiryResult  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
+
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof IntegrationEnquiryResult)) return false;
+        if (!(obj instanceof IntegrationEnquiryResult)) {
+            return false;
+        }
         IntegrationEnquiryResult other = (IntegrationEnquiryResult) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+            return false;
+        }
+        if (this == obj) {
+            return true;
+        }
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.balanceRecordList==null && other.getBalanceRecordList()==null) || 
-             (this.balanceRecordList!=null &&
-              java.util.Arrays.equals(this.balanceRecordList, other.getBalanceRecordList()))) &&
-            ((this.subscriberState==null && other.getSubscriberState()==null) || 
-             (this.subscriberState!=null &&
-              this.subscriberState.equals(other.getSubscriberState()))) &&
-            ((this.billingCycleDate==null && other.getBillingCycleDate()==null) || 
-             (this.billingCycleDate!=null &&
-              this.billingCycleDate.equals(other.getBillingCycleDate()))) &&
-            ((this.subscriberInfo==null && other.getSubscriberInfo()==null) || 
-             (this.subscriberInfo!=null &&
-              this.subscriberInfo.equals(other.getSubscriberInfo()))) &&
-            ((this.cumulativeItemList==null && other.getCumulativeItemList()==null) || 
-             (this.cumulativeItemList!=null &&
-              java.util.Arrays.equals(this.cumulativeItemList, other.getCumulativeItemList()))) &&
-            ((this.userGroupList==null && other.getUserGroupList()==null) || 
-             (this.userGroupList!=null &&
-              java.util.Arrays.equals(this.userGroupList, other.getUserGroupList()))) &&
-            ((this.subAttachedInfo==null && other.getSubAttachedInfo()==null) || 
-             (this.subAttachedInfo!=null &&
-              this.subAttachedInfo.equals(other.getSubAttachedInfo())));
+        _equals = true
+                && ((this.balanceRecordList == null && other.getBalanceRecordList() == null)
+                || (this.balanceRecordList != null
+                && java.util.Arrays.equals(this.balanceRecordList, other.getBalanceRecordList())))
+                && ((this.subscriberState == null && other.getSubscriberState() == null)
+                || (this.subscriberState != null
+                && this.subscriberState.equals(other.getSubscriberState())))
+                && ((this.billingCycleDate == null && other.getBillingCycleDate() == null)
+                || (this.billingCycleDate != null
+                && this.billingCycleDate.equals(other.getBillingCycleDate())))
+                && ((this.subscriberInfo == null && other.getSubscriberInfo() == null)
+                || (this.subscriberInfo != null
+                && this.subscriberInfo.equals(other.getSubscriberInfo())))
+                && ((this.cumulativeItemList == null && other.getCumulativeItemList() == null)
+                || (this.cumulativeItemList != null
+                && java.util.Arrays.equals(this.cumulativeItemList, other.getCumulativeItemList())))
+                && ((this.userGroupList == null && other.getUserGroupList() == null)
+                || (this.userGroupList != null
+                && java.util.Arrays.equals(this.userGroupList, other.getUserGroupList())))
+                && ((this.subAttachedInfo == null && other.getSubAttachedInfo() == null)
+                || (this.subAttachedInfo != null
+                && this.subAttachedInfo.equals(other.getSubAttachedInfo())));
         __equalsCalc = null;
         return _equals;
     }
 
     private boolean __hashCodeCalc = false;
+
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
@@ -227,12 +221,12 @@ public class IntegrationEnquiryResult  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getBalanceRecordList() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getBalanceRecordList());
-                 i++) {
+            for (int i = 0;
+                    i < java.lang.reflect.Array.getLength(getBalanceRecordList());
+                    i++) {
                 java.lang.Object obj = java.lang.reflect.Array.get(getBalanceRecordList(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
+                if (obj != null
+                        && !obj.getClass().isArray()) {
                     _hashCode += obj.hashCode();
                 }
             }
@@ -247,23 +241,23 @@ public class IntegrationEnquiryResult  implements java.io.Serializable {
             _hashCode += getSubscriberInfo().hashCode();
         }
         if (getCumulativeItemList() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getCumulativeItemList());
-                 i++) {
+            for (int i = 0;
+                    i < java.lang.reflect.Array.getLength(getCumulativeItemList());
+                    i++) {
                 java.lang.Object obj = java.lang.reflect.Array.get(getCumulativeItemList(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
+                if (obj != null
+                        && !obj.getClass().isArray()) {
                     _hashCode += obj.hashCode();
                 }
             }
         }
         if (getUserGroupList() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getUserGroupList());
-                 i++) {
+            for (int i = 0;
+                    i < java.lang.reflect.Array.getLength(getUserGroupList());
+                    i++) {
                 java.lang.Object obj = java.lang.reflect.Array.get(getUserGroupList(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
+                if (obj != null
+                        && !obj.getClass().isArray()) {
                     _hashCode += obj.hashCode();
                 }
             }
@@ -276,8 +270,8 @@ public class IntegrationEnquiryResult  implements java.io.Serializable {
     }
 
     // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(IntegrationEnquiryResult.class, true);
+    private static org.apache.axis.description.TypeDesc typeDesc
+            = new org.apache.axis.description.TypeDesc(IntegrationEnquiryResult.class, true);
 
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/cbs/businessmgr", "IntegrationEnquiryResult"));
@@ -346,24 +340,22 @@ public class IntegrationEnquiryResult  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return new org.apache.axis.encoding.ser.BeanSerializer(
+                _javaType, _xmlType, typeDesc);
     }
 
     /**
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return new org.apache.axis.encoding.ser.BeanDeserializer(
+                _javaType, _xmlType, typeDesc);
     }
 
 }
