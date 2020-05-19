@@ -30,7 +30,7 @@ public class OCSWebMethods {
         this.serialNo = serialNo;
     }
 
-    public OCSWebMethods(String ipAddress, String port) throws ServiceException {
+    public OCSWebMethods(String ipAddress, String port) throws ServiceException  {
         CBSInterfaceAccountMgrServiceLocator accMgrlocator = new CBSInterfaceAccountMgrServiceLocator();
         accMgrlocator.setCBSInterfaceAccountMgrServicePortEndpointAddress("https://" + ipAddress + ":" + port + "/services/CBSInterfaceAccountMgrService?wsdl");
         portAccMgr = accMgrlocator.getCBSInterfaceAccountMgrServicePort();

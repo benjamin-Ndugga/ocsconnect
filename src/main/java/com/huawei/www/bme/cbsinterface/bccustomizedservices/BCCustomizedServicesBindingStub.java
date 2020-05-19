@@ -4,16 +4,19 @@
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
-
 package com.huawei.www.bme.cbsinterface.bccustomizedservices;
 
+import org.apache.axis.MessageContext;
+import org.apache.axis.transport.http.HTTPConstants;
+
 public class BCCustomizedServicesBindingStub extends org.apache.axis.client.Stub implements com.huawei.www.bme.cbsinterface.bccustomizedservices.BCCustomizedServices_PortType {
+
     private java.util.Vector cachedSerClasses = new java.util.Vector();
     private java.util.Vector cachedSerQNames = new java.util.Vector();
     private java.util.Vector cachedSerFactories = new java.util.Vector();
     private java.util.Vector cachedDeserFactories = new java.util.Vector();
 
-    static org.apache.axis.description.OperationDesc [] _operations;
+    static org.apache.axis.description.OperationDesc[] _operations;
 
     static {
         _operations = new org.apache.axis.description.OperationDesc[13];
@@ -21,7 +24,7 @@ public class BCCustomizedServicesBindingStub extends org.apache.axis.client.Stub
         _initOperationDesc2();
     }
 
-    private static void _initOperationDesc1(){
+    private static void _initOperationDesc1() {
         org.apache.axis.description.OperationDesc oper;
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
@@ -136,7 +139,7 @@ public class BCCustomizedServicesBindingStub extends org.apache.axis.client.Stub
 
     }
 
-    private static void _initOperationDesc2(){
+    private static void _initOperationDesc2() {
         org.apache.axis.description.OperationDesc oper;
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
@@ -175,12 +178,12 @@ public class BCCustomizedServicesBindingStub extends org.apache.axis.client.Stub
     }
 
     public BCCustomizedServicesBindingStub() throws org.apache.axis.AxisFault {
-         this(null);
+        this(null);
     }
 
     public BCCustomizedServicesBindingStub(java.net.URL endpointURL, javax.xml.rpc.Service service) throws org.apache.axis.AxisFault {
-         this(service);
-         super.cachedEndpoint = endpointURL;
+        this(service);
+        super.cachedEndpoint = endpointURL;
     }
 
     public BCCustomizedServicesBindingStub(javax.xml.rpc.Service service) throws org.apache.axis.AxisFault {
@@ -189,989 +192,993 @@ public class BCCustomizedServicesBindingStub extends org.apache.axis.client.Stub
         } else {
             super.service = service;
         }
-        ((org.apache.axis.client.Service)super.service).setTypeMappingVersion("1.2");
-            java.lang.Class cls;
-            javax.xml.namespace.QName qName;
-            javax.xml.namespace.QName qName2;
-            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
-            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
-            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
-            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
-            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
-            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
-            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
-            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
-            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
-            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
+        ((org.apache.axis.client.Service) super.service).setTypeMappingVersion("1.2");
+        java.lang.Class cls;
+        javax.xml.namespace.QName qName;
+        javax.xml.namespace.QName qName2;
+        java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
+        java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
+        java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
+        java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
+        java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
+        java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
+        java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
+        java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
+        java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
+        java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
         addBindings0();
         addBindings1();
     }
 
     private void addBindings0() {
-            java.lang.Class cls;
-            javax.xml.namespace.QName qName;
-            javax.xml.namespace.QName qName2;
-            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
-            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
-            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
-            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
-            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
-            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
-            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
-            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
-            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
-            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">>AccountInfo>AutoPayChannel>AutoPayChannelInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.AccountInfoAutoPayChannelAutoPayChannelInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">>AutoPayChannelInfo>PaymentPlan>BillCycleSchema");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.AutoPayChannelInfoPaymentPlanBillCycleSchema.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">>AutoPayChannelInfo>PaymentPlan>LowBalanceSchema");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.AutoPayChannelInfoPaymentPlanLowBalanceSchema.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">>AutoPayChannelInfo>PaymentPlan>TimeSchema");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.AutoPayChannelInfoPaymentPlanTimeSchema.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">>Subscriber>ConsumptionLimit>LimitParam");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.SubscriberConsumptionLimitLimitParam.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">AccountForBatch>CreditLimit");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.AccountForBatchCreditLimit.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">AccountInfo>AutoPayChannel");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.AccountInfoAutoPayChannel.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">AccountInfo>CreditLimit");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.AccountInfoCreditLimit.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">AutoPayChannelInfo>PaymentPlan");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.AutoPayChannelInfoPaymentPlan.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">CustInfo>NoticeSuppress");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.CustInfoNoticeSuppress.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">InstProperty>SubPropInst");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.InstPropertySubPropInst.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">OfferingInst>OInstProperty");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.OfferingInstOInstProperty.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">PaymentLimit>Limit");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.PaymentLimitLimit.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">POfferingInst>OfferingInstProperty");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.POfferingInstOfferingInstProperty.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">ProductInst>PInstProperty");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.ProductInstPInstProperty.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">RscRelation>RelationDestIdentify");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.RscRelationRelationDestIdentify.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">RscRelation>ShareLimit");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.RscRelationShareLimit.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">Subscriber>ConsumptionLimit");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.SubscriberConsumptionLimit.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">SubscriberForBatch>SubBasicInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.SubscriberForBatchSubBasicInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "AccountBasicInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.AccountBasicInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "AccountForBatch");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.AccountForBatch.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "AccountInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.AccountInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "AcctAccessCode");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.AcctAccessCode.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "ActiveMode");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.ActiveMode.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "Address");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.Address.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "AutoPayChannelInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.AutoPayChannelInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "AutoPaymentPlan");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.AutoPaymentPlan.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "BalanceChgInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.BalanceChgInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "Contact");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.Contact.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "CustAccessCode");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.CustAccessCode.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "CustBasicInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.CustBasicInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "CustInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.CustInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "CustomerForBatch");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.CustomerForBatch.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "DateTime");
-            cachedSerQNames.add(qName);
-            cls = java.lang.String.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(org.apache.axis.encoding.ser.BaseSerializerFactory.createFactory(org.apache.axis.encoding.ser.SimpleSerializerFactory.class, cls, qName));
-            cachedDeserFactories.add(org.apache.axis.encoding.ser.BaseDeserializerFactory.createFactory(org.apache.axis.encoding.ser.SimpleDeserializerFactory.class, cls, qName));
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "EffectMode");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.EffectMode.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "FreeBillMedium");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.FreeBillMedium.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "FreeUnitChgInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.FreeUnitChgInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "IndividualInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.IndividualInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "InstProperty");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.InstProperty.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "OfferingExpireMode");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.OfferingExpireMode.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "OfferingInst");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.OfferingInst.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "OfferingKey");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.OfferingKey.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "OfferingOwner");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.OfferingOwner.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "OrgInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.OrgInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "PaymentLimit");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.PaymentLimit.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "PayOwner");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.PayOwner.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "PayRelExtRule");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.PayRelExtRule.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "POfferingInst");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.POfferingInst.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "ProductInst");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.ProductInst.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "RscRelation");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.RscRelation.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SalesInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.SalesInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SimpleProperty");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.SimpleProperty.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "Statement");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.Statement.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "StatementInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.StatementInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "StatementMedium");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.StatementMedium.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "StatementScenario");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.StatementScenario.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SubAccessCode");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.SubAccessCode.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SubBasicInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.SubBasicInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SubGroup");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.SubGroup.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SubGroupAccessCode");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.SubGroupAccessCode.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SubGroupBasicInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.SubGroupBasicInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SubGroupMember");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.SubGroupMember.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SubGroupMemberInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.SubGroupMemberInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SubIdentity");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.SubIdentity.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SubRelationInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.SubRelationInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "Subscriber");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.Subscriber.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SubscriberForBatch");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.SubscriberForBatch.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "Tax");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.Tax.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "TaxException");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccommon.TaxException.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">>BatchChangeOfferingPropertyRequest>OfferingInstProperty>AddProperty");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyRequestOfferingInstPropertyAddProperty.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">>BatchChangeOfferingPropertyRequest>OfferingInstProperty>DelProperty");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyRequestOfferingInstPropertyDelProperty.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">>BatchChangeOfferingPropertyRequest>ProductInst>AddProperty");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyRequestProductInstAddProperty.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">>BatchChangeOfferingPropertyRequest>ProductInst>DelProperty");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyRequestProductInstDelProperty.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchCancelPreDeactivationRequestMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchCancelPreDeactivationRequestMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchCancelPreDeactivationResultMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchCancelPreDeactivationResultMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeAcctBillCycleRequestMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctBillCycleRequestMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeAcctBillCycleResultMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctBillCycleResultMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeAcctInfoRequestMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctInfoRequestMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeAcctInfoResultMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctInfoResultMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeOfferingPropertyRequest>OfferingInstProperty");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyRequestOfferingInstProperty.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeOfferingPropertyRequest>ProductInst");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyRequestProductInst.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeOfferingPropertyRequestMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyRequestMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeOfferingPropertyResultMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyResultMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeScatteredSubOwnershipRequestMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeScatteredSubOwnershipRequestMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeScatteredSubOwnershipResultMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeScatteredSubOwnershipResultMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeSubIdentityRequestMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeSubIdentityRequestMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeSubIdentityResultMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeSubIdentityResultMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchScatteredSubActivationRequest>SubBasicInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchScatteredSubActivationRequestSubBasicInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchScatteredSubActivationRequestMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchScatteredSubActivationRequestMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchScatteredSubActivationResultMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchScatteredSubActivationResultMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchSubActivationRequest>OfferingInst");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSubActivationRequestOfferingInst.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchSubActivationRequest>SubBasicInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSubActivationRequestSubBasicInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchSupplementScatteredProfileRequestMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSupplementScatteredProfileRequestMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchSupplementScatteredProfileResultMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSupplementScatteredProfileResultMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">CreateSuperGroupRequest>SuperGroupAccessCode");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.CreateSuperGroupRequestSuperGroupAccessCode.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">CreateSuperGroupRequestMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.CreateSuperGroupRequestMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">CreateSuperGroupResultMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.CreateSuperGroupResultMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">DeleteSuperGroupMemberRequest>members");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupMemberRequestMembers.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">DeleteSuperGroupMemberRequest>SuperGroupAccess");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupMemberRequestSuperGroupAccess.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">DeleteSuperGroupMemberRequestMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupMemberRequestMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        java.lang.Class cls;
+        javax.xml.namespace.QName qName;
+        javax.xml.namespace.QName qName2;
+        java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
+        java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
+        java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
+        java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
+        java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
+        java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
+        java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
+        java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
+        java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
+        java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">>AccountInfo>AutoPayChannel>AutoPayChannelInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.AccountInfoAutoPayChannelAutoPayChannelInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">>AutoPayChannelInfo>PaymentPlan>BillCycleSchema");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.AutoPayChannelInfoPaymentPlanBillCycleSchema.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">>AutoPayChannelInfo>PaymentPlan>LowBalanceSchema");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.AutoPayChannelInfoPaymentPlanLowBalanceSchema.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">>AutoPayChannelInfo>PaymentPlan>TimeSchema");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.AutoPayChannelInfoPaymentPlanTimeSchema.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">>Subscriber>ConsumptionLimit>LimitParam");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.SubscriberConsumptionLimitLimitParam.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">AccountForBatch>CreditLimit");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.AccountForBatchCreditLimit.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">AccountInfo>AutoPayChannel");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.AccountInfoAutoPayChannel.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">AccountInfo>CreditLimit");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.AccountInfoCreditLimit.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">AutoPayChannelInfo>PaymentPlan");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.AutoPayChannelInfoPaymentPlan.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">CustInfo>NoticeSuppress");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.CustInfoNoticeSuppress.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">InstProperty>SubPropInst");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.InstPropertySubPropInst.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">OfferingInst>OInstProperty");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.OfferingInstOInstProperty.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">PaymentLimit>Limit");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.PaymentLimitLimit.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">POfferingInst>OfferingInstProperty");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.POfferingInstOfferingInstProperty.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">ProductInst>PInstProperty");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.ProductInstPInstProperty.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">RscRelation>RelationDestIdentify");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.RscRelationRelationDestIdentify.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">RscRelation>ShareLimit");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.RscRelationShareLimit.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">Subscriber>ConsumptionLimit");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.SubscriberConsumptionLimit.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", ">SubscriberForBatch>SubBasicInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.SubscriberForBatchSubBasicInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "AccountBasicInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.AccountBasicInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "AccountForBatch");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.AccountForBatch.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "AccountInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.AccountInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "AcctAccessCode");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.AcctAccessCode.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "ActiveMode");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.ActiveMode.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "Address");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.Address.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "AutoPayChannelInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.AutoPayChannelInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "AutoPaymentPlan");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.AutoPaymentPlan.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "BalanceChgInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.BalanceChgInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "Contact");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.Contact.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "CustAccessCode");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.CustAccessCode.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "CustBasicInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.CustBasicInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "CustInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.CustInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "CustomerForBatch");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.CustomerForBatch.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "DateTime");
+        cachedSerQNames.add(qName);
+        cls = java.lang.String.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(org.apache.axis.encoding.ser.BaseSerializerFactory.createFactory(org.apache.axis.encoding.ser.SimpleSerializerFactory.class, cls, qName));
+        cachedDeserFactories.add(org.apache.axis.encoding.ser.BaseDeserializerFactory.createFactory(org.apache.axis.encoding.ser.SimpleDeserializerFactory.class, cls, qName));
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "EffectMode");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.EffectMode.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "FreeBillMedium");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.FreeBillMedium.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "FreeUnitChgInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.FreeUnitChgInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "IndividualInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.IndividualInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "InstProperty");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.InstProperty.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "OfferingExpireMode");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.OfferingExpireMode.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "OfferingInst");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.OfferingInst.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "OfferingKey");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.OfferingKey.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "OfferingOwner");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.OfferingOwner.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "OrgInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.OrgInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "PaymentLimit");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.PaymentLimit.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "PayOwner");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.PayOwner.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "PayRelExtRule");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.PayRelExtRule.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "POfferingInst");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.POfferingInst.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "ProductInst");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.ProductInst.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "RscRelation");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.RscRelation.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SalesInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.SalesInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SimpleProperty");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.SimpleProperty.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "Statement");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.Statement.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "StatementInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.StatementInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "StatementMedium");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.StatementMedium.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "StatementScenario");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.StatementScenario.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SubAccessCode");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.SubAccessCode.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SubBasicInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.SubBasicInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SubGroup");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.SubGroup.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SubGroupAccessCode");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.SubGroupAccessCode.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SubGroupBasicInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.SubGroupBasicInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SubGroupMember");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.SubGroupMember.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SubGroupMemberInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.SubGroupMemberInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SubIdentity");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.SubIdentity.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SubRelationInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.SubRelationInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "Subscriber");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.Subscriber.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "SubscriberForBatch");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.SubscriberForBatch.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "Tax");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.Tax.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccommon", "TaxException");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccommon.TaxException.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">>BatchChangeOfferingPropertyRequest>OfferingInstProperty>AddProperty");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyRequestOfferingInstPropertyAddProperty.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">>BatchChangeOfferingPropertyRequest>OfferingInstProperty>DelProperty");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyRequestOfferingInstPropertyDelProperty.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">>BatchChangeOfferingPropertyRequest>ProductInst>AddProperty");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyRequestProductInstAddProperty.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">>BatchChangeOfferingPropertyRequest>ProductInst>DelProperty");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyRequestProductInstDelProperty.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchCancelPreDeactivationRequestMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchCancelPreDeactivationRequestMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchCancelPreDeactivationResultMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchCancelPreDeactivationResultMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeAcctBillCycleRequestMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctBillCycleRequestMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeAcctBillCycleResultMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctBillCycleResultMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeAcctInfoRequestMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctInfoRequestMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeAcctInfoResultMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctInfoResultMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeOfferingPropertyRequest>OfferingInstProperty");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyRequestOfferingInstProperty.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeOfferingPropertyRequest>ProductInst");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyRequestProductInst.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeOfferingPropertyRequestMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyRequestMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeOfferingPropertyResultMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyResultMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeScatteredSubOwnershipRequestMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeScatteredSubOwnershipRequestMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeScatteredSubOwnershipResultMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeScatteredSubOwnershipResultMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeSubIdentityRequestMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeSubIdentityRequestMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchChangeSubIdentityResultMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeSubIdentityResultMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchScatteredSubActivationRequest>SubBasicInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchScatteredSubActivationRequestSubBasicInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchScatteredSubActivationRequestMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchScatteredSubActivationRequestMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchScatteredSubActivationResultMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchScatteredSubActivationResultMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchSubActivationRequest>OfferingInst");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSubActivationRequestOfferingInst.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchSubActivationRequest>SubBasicInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSubActivationRequestSubBasicInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchSupplementScatteredProfileRequestMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSupplementScatteredProfileRequestMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">BatchSupplementScatteredProfileResultMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSupplementScatteredProfileResultMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">CreateSuperGroupRequest>SuperGroupAccessCode");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.CreateSuperGroupRequestSuperGroupAccessCode.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">CreateSuperGroupRequestMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.CreateSuperGroupRequestMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">CreateSuperGroupResultMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.CreateSuperGroupResultMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">DeleteSuperGroupMemberRequest>members");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupMemberRequestMembers.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">DeleteSuperGroupMemberRequest>SuperGroupAccess");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupMemberRequestSuperGroupAccess.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
+
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">DeleteSuperGroupMemberRequestMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupMemberRequestMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
     }
+
     private void addBindings1() {
-            java.lang.Class cls;
-            javax.xml.namespace.QName qName;
-            javax.xml.namespace.QName qName2;
-            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
-            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
-            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
-            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
-            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
-            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
-            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
-            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
-            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
-            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">DeleteSuperGroupMemberResultMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupMemberResultMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        java.lang.Class cls;
+        javax.xml.namespace.QName qName;
+        javax.xml.namespace.QName qName2;
+        java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
+        java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
+        java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
+        java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
+        java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
+        java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
+        java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
+        java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
+        java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
+        java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">DeleteSuperGroupMemberResultMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupMemberResultMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">DeleteSuperGroupRequest>SuperGroupAccess");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupRequestSuperGroupAccess.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">DeleteSuperGroupRequest>SuperGroupAccess");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupRequestSuperGroupAccess.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">DeleteSuperGroupRequestMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupRequestMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">DeleteSuperGroupRequestMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupRequestMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">DeleteSuperGroupResultMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupResultMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">DeleteSuperGroupResultMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupResultMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">JoinSuperGroupRequest>members");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.JoinSuperGroupRequestMembers.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">JoinSuperGroupRequest>members");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.JoinSuperGroupRequestMembers.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">JoinSuperGroupRequest>SuperGroupAccess");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.JoinSuperGroupRequestSuperGroupAccess.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">JoinSuperGroupRequest>SuperGroupAccess");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.JoinSuperGroupRequestSuperGroupAccess.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">JoinSuperGroupRequestMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.JoinSuperGroupRequestMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">JoinSuperGroupRequestMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.JoinSuperGroupRequestMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">JoinSuperGroupResultMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.JoinSuperGroupResultMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">JoinSuperGroupResultMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.JoinSuperGroupResultMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">ManCrossGroupRequestMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.ManCrossGroupRequestMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">ManCrossGroupRequestMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.ManCrossGroupRequestMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">ManCrossGroupResultMsg");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.ManCrossGroupResultMsg.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", ">ManCrossGroupResultMsg");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.ManCrossGroupResultMsg.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "BatchCancelPreDeactivationRequest");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchCancelPreDeactivationRequest.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "BatchCancelPreDeactivationRequest");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchCancelPreDeactivationRequest.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "BatchChangeAcctBillCycleRequest");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctBillCycleRequest.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "BatchChangeAcctBillCycleRequest");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctBillCycleRequest.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "BatchChangeAcctInfoRequest");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctInfoRequest.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "BatchChangeAcctInfoRequest");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctInfoRequest.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "BatchChangeOfferingPropertyRequest");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyRequest.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "BatchChangeOfferingPropertyRequest");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyRequest.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "BatchChangeScatteredSubOwnershipRequest");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeScatteredSubOwnershipRequest.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "BatchChangeScatteredSubOwnershipRequest");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeScatteredSubOwnershipRequest.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "BatchChangeSubIdentityRequest");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeSubIdentityRequest.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "BatchChangeSubIdentityRequest");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeSubIdentityRequest.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "BatchScatteredSubActivationRequest");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchScatteredSubActivationRequest.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "BatchScatteredSubActivationRequest");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchScatteredSubActivationRequest.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "BatchSubActivationRequest");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSubActivationRequest.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "BatchSubActivationRequest");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSubActivationRequest.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "BatchSubDeactivationRequest");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSubDeactivationRequest.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "BatchSubDeactivationRequest");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSubDeactivationRequest.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "BatchSupplementScatteredProfileRequest");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSupplementScatteredProfileRequest.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "BatchSupplementScatteredProfileRequest");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSupplementScatteredProfileRequest.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "CreateSuperGroupRequest");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.CreateSuperGroupRequest.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "CreateSuperGroupRequest");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.CreateSuperGroupRequest.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "DeleteSuperGroupMemberRequest");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupMemberRequest.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "DeleteSuperGroupMemberRequest");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupMemberRequest.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "DeleteSuperGroupRequest");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupRequest.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "DeleteSuperGroupRequest");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupRequest.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "JoinSuperGroupRequest");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.JoinSuperGroupRequest.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "JoinSuperGroupRequest");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.JoinSuperGroupRequest.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "ManCrossGroupRequest");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.ManCrossGroupRequest.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/bccustomizedservices", "ManCrossGroupRequest");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.bccustomizedservices.ManCrossGroupRequest.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/cbscommon", ">RequestHeader>AdditionalProperty");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.cbscommon.RequestHeaderAdditionalProperty.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/cbscommon", ">RequestHeader>AdditionalProperty");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.cbscommon.RequestHeaderAdditionalProperty.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/cbscommon", ">RequestHeader>TimeFormat");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.cbscommon.RequestHeaderTimeFormat.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/cbscommon", ">RequestHeader>TimeFormat");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.cbscommon.RequestHeaderTimeFormat.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/cbscommon", ">ResultHeader>AdditionalProperty");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.cbscommon.ResultHeaderAdditionalProperty.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/cbscommon", ">ResultHeader>AdditionalProperty");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.cbscommon.ResultHeaderAdditionalProperty.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/cbscommon", "OperatorInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.cbscommon.OperatorInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/cbscommon", "OperatorInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.cbscommon.OperatorInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/cbscommon", "OwnershipInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.cbscommon.OwnershipInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/cbscommon", "OwnershipInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.cbscommon.OwnershipInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/cbscommon", "RequestHeader");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.cbscommon.RequestHeader.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/cbscommon", "RequestHeader");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.cbscommon.RequestHeader.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/cbscommon", "ResultHeader");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.cbscommon.ResultHeader.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/cbscommon", "ResultHeader");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.cbscommon.ResultHeader.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/cbscommon", "SecurityInfo");
-            cachedSerQNames.add(qName);
-            cls = com.huawei.www.bme.cbsinterface.cbscommon.SecurityInfo.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("http://www.huawei.com/bme/cbsinterface/cbscommon", "SecurityInfo");
+        cachedSerQNames.add(qName);
+        cls = com.huawei.www.bme.cbsinterface.cbscommon.SecurityInfo.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
     }
 
     protected org.apache.axis.client.Call createCall() throws java.rmi.RemoteException {
         try {
             org.apache.axis.client.Call _call = super._createCall();
+
+            _call.setProperty(MessageContext.HTTP_TRANSPORT_VERSION, HTTPConstants.HEADER_PROTOCOL_V11);
+
             if (super.maintainSessionSet) {
                 _call.setMaintainSession(super.maintainSession);
             }
@@ -1206,29 +1213,23 @@ public class BCCustomizedServicesBindingStub extends org.apache.axis.client.Stub
                     _call.setEncodingStyle(null);
                     for (int i = 0; i < cachedSerFactories.size(); ++i) {
                         java.lang.Class cls = (java.lang.Class) cachedSerClasses.get(i);
-                        javax.xml.namespace.QName qName =
-                                (javax.xml.namespace.QName) cachedSerQNames.get(i);
+                        javax.xml.namespace.QName qName
+                                = (javax.xml.namespace.QName) cachedSerQNames.get(i);
                         java.lang.Object x = cachedSerFactories.get(i);
                         if (x instanceof Class) {
-                            java.lang.Class sf = (java.lang.Class)
-                                 cachedSerFactories.get(i);
-                            java.lang.Class df = (java.lang.Class)
-                                 cachedDeserFactories.get(i);
+                            java.lang.Class sf = (java.lang.Class) cachedSerFactories.get(i);
+                            java.lang.Class df = (java.lang.Class) cachedDeserFactories.get(i);
                             _call.registerTypeMapping(cls, qName, sf, df, false);
-                        }
-                        else if (x instanceof javax.xml.rpc.encoding.SerializerFactory) {
-                            org.apache.axis.encoding.SerializerFactory sf = (org.apache.axis.encoding.SerializerFactory)
-                                 cachedSerFactories.get(i);
-                            org.apache.axis.encoding.DeserializerFactory df = (org.apache.axis.encoding.DeserializerFactory)
-                                 cachedDeserFactories.get(i);
+                        } else if (x instanceof javax.xml.rpc.encoding.SerializerFactory) {
+                            org.apache.axis.encoding.SerializerFactory sf = (org.apache.axis.encoding.SerializerFactory) cachedSerFactories.get(i);
+                            org.apache.axis.encoding.DeserializerFactory df = (org.apache.axis.encoding.DeserializerFactory) cachedDeserFactories.get(i);
                             _call.registerTypeMapping(cls, qName, sf, df, false);
                         }
                     }
                 }
             }
             return _call;
-        }
-        catch (java.lang.Throwable _t) {
+        } catch (java.lang.Throwable _t) {
             throw new org.apache.axis.AxisFault("Failure trying to get the Call object", _t);
         }
     }
@@ -1249,22 +1250,22 @@ public class BCCustomizedServicesBindingStub extends org.apache.axis.client.Stub
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {batchCancelPreDeactivationRequestMsg});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{batchCancelPreDeactivationRequestMsg});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchCancelPreDeactivationResultMsg) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchCancelPreDeactivationResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchCancelPreDeactivationResultMsg.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchCancelPreDeactivationResultMsg) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchCancelPreDeactivationResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchCancelPreDeactivationResultMsg.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSupplementScatteredProfileResultMsg batchSupplementScatteredProfile(com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSupplementScatteredProfileRequestMsg batchSupplementScatteredProfileRequestMsg) throws java.rmi.RemoteException {
@@ -1283,22 +1284,22 @@ public class BCCustomizedServicesBindingStub extends org.apache.axis.client.Stub
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {batchSupplementScatteredProfileRequestMsg});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{batchSupplementScatteredProfileRequestMsg});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSupplementScatteredProfileResultMsg) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSupplementScatteredProfileResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSupplementScatteredProfileResultMsg.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSupplementScatteredProfileResultMsg) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSupplementScatteredProfileResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchSupplementScatteredProfileResultMsg.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeSubIdentityResultMsg batchChangeSubIdentity(com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeSubIdentityRequestMsg batchChangeSubIdentityRequestMsg) throws java.rmi.RemoteException {
@@ -1317,22 +1318,22 @@ public class BCCustomizedServicesBindingStub extends org.apache.axis.client.Stub
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {batchChangeSubIdentityRequestMsg});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{batchChangeSubIdentityRequestMsg});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeSubIdentityResultMsg) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeSubIdentityResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeSubIdentityResultMsg.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeSubIdentityResultMsg) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeSubIdentityResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeSubIdentityResultMsg.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctBillCycleResultMsg batchChangeAcctBillCycle(com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctBillCycleRequestMsg batchChangeAcctBillCycleRequestMsg) throws java.rmi.RemoteException {
@@ -1351,22 +1352,22 @@ public class BCCustomizedServicesBindingStub extends org.apache.axis.client.Stub
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {batchChangeAcctBillCycleRequestMsg});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{batchChangeAcctBillCycleRequestMsg});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctBillCycleResultMsg) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctBillCycleResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctBillCycleResultMsg.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctBillCycleResultMsg) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctBillCycleResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctBillCycleResultMsg.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyResultMsg batchChangeOfferingProperty(com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyRequestMsg batchChangeOfferingPropertyRequestMsg) throws java.rmi.RemoteException {
@@ -1385,22 +1386,22 @@ public class BCCustomizedServicesBindingStub extends org.apache.axis.client.Stub
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {batchChangeOfferingPropertyRequestMsg});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{batchChangeOfferingPropertyRequestMsg});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyResultMsg) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyResultMsg.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyResultMsg) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeOfferingPropertyResultMsg.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeScatteredSubOwnershipResultMsg batchChangeScatteredSubOwnership(com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeScatteredSubOwnershipRequestMsg batchChangeScatteredSubOwnershipRequestMsg) throws java.rmi.RemoteException {
@@ -1419,22 +1420,22 @@ public class BCCustomizedServicesBindingStub extends org.apache.axis.client.Stub
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {batchChangeScatteredSubOwnershipRequestMsg});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{batchChangeScatteredSubOwnershipRequestMsg});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeScatteredSubOwnershipResultMsg) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeScatteredSubOwnershipResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeScatteredSubOwnershipResultMsg.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeScatteredSubOwnershipResultMsg) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeScatteredSubOwnershipResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeScatteredSubOwnershipResultMsg.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public com.huawei.www.bme.cbsinterface.bccustomizedservices.ManCrossGroupResultMsg manCrossGroup(com.huawei.www.bme.cbsinterface.bccustomizedservices.ManCrossGroupRequestMsg manCrossGroupRequestMsg) throws java.rmi.RemoteException {
@@ -1453,22 +1454,22 @@ public class BCCustomizedServicesBindingStub extends org.apache.axis.client.Stub
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {manCrossGroupRequestMsg});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{manCrossGroupRequestMsg});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.ManCrossGroupResultMsg) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.ManCrossGroupResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.ManCrossGroupResultMsg.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.ManCrossGroupResultMsg) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.ManCrossGroupResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.ManCrossGroupResultMsg.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctInfoResultMsg batchChangeAcctInfo(com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctInfoRequestMsg batchChangeAcctInfoRequestMsg) throws java.rmi.RemoteException {
@@ -1487,22 +1488,22 @@ public class BCCustomizedServicesBindingStub extends org.apache.axis.client.Stub
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {batchChangeAcctInfoRequestMsg});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{batchChangeAcctInfoRequestMsg});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctInfoResultMsg) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctInfoResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctInfoResultMsg.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctInfoResultMsg) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctInfoResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchChangeAcctInfoResultMsg.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchScatteredSubActivationResultMsg batchScatteredSubActivation(com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchScatteredSubActivationRequestMsg batchScatteredSubActivationRequestMsg) throws java.rmi.RemoteException {
@@ -1521,22 +1522,22 @@ public class BCCustomizedServicesBindingStub extends org.apache.axis.client.Stub
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {batchScatteredSubActivationRequestMsg});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{batchScatteredSubActivationRequestMsg});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchScatteredSubActivationResultMsg) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchScatteredSubActivationResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchScatteredSubActivationResultMsg.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchScatteredSubActivationResultMsg) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchScatteredSubActivationResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.BatchScatteredSubActivationResultMsg.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public com.huawei.www.bme.cbsinterface.bccustomizedservices.CreateSuperGroupResultMsg createSuperGroup(com.huawei.www.bme.cbsinterface.bccustomizedservices.CreateSuperGroupRequestMsg createSuperGroupRequestMsg) throws java.rmi.RemoteException {
@@ -1555,22 +1556,22 @@ public class BCCustomizedServicesBindingStub extends org.apache.axis.client.Stub
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {createSuperGroupRequestMsg});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{createSuperGroupRequestMsg});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.CreateSuperGroupResultMsg) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.CreateSuperGroupResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.CreateSuperGroupResultMsg.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.CreateSuperGroupResultMsg) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.CreateSuperGroupResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.CreateSuperGroupResultMsg.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public com.huawei.www.bme.cbsinterface.bccustomizedservices.JoinSuperGroupResultMsg joinSuperGroup(com.huawei.www.bme.cbsinterface.bccustomizedservices.JoinSuperGroupRequestMsg joinSuperGroupRequestMsg) throws java.rmi.RemoteException {
@@ -1589,22 +1590,22 @@ public class BCCustomizedServicesBindingStub extends org.apache.axis.client.Stub
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {joinSuperGroupRequestMsg});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{joinSuperGroupRequestMsg});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.JoinSuperGroupResultMsg) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.JoinSuperGroupResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.JoinSuperGroupResultMsg.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.JoinSuperGroupResultMsg) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.JoinSuperGroupResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.JoinSuperGroupResultMsg.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupResultMsg deleteSuperGroup(com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupRequestMsg deleteSuperGroupRequestMsg) throws java.rmi.RemoteException {
@@ -1623,22 +1624,22 @@ public class BCCustomizedServicesBindingStub extends org.apache.axis.client.Stub
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {deleteSuperGroupRequestMsg});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{deleteSuperGroupRequestMsg});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupResultMsg) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupResultMsg.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupResultMsg) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupResultMsg.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupMemberResultMsg deleteSuperGroupMember(com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupMemberRequestMsg deleteSuperGroupMemberRequestMsg) throws java.rmi.RemoteException {
@@ -1657,22 +1658,22 @@ public class BCCustomizedServicesBindingStub extends org.apache.axis.client.Stub
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {deleteSuperGroupMemberRequestMsg});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{deleteSuperGroupMemberRequestMsg});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupMemberResultMsg) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupMemberResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupMemberResultMsg.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            } else {
+                extractAttachments(_call);
+                try {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupMemberResultMsg) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupMemberResultMsg) org.apache.axis.utils.JavaUtils.convert(_resp, com.huawei.www.bme.cbsinterface.bccustomizedservices.DeleteSuperGroupMemberResultMsg.class);
+                }
             }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
 }
