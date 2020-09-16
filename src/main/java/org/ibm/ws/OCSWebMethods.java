@@ -10,7 +10,7 @@ import java.util.Random;
 import javax.xml.rpc.ServiceException;
 
 /**
- * <em>Service Endpoint Interface To OCS 5.5</em>
+ * <em>Service Endpoint Interface To OCS 5.6</em>
  *
  * @author BENJI IBM
  */
@@ -19,8 +19,8 @@ public class OCSWebMethods {
     private final CBSInterfaceAccountMgr portAccMgr;
     private final CBSInterfaceBusinessMgr portBizMgr;
     private String serialNo;
-    private static final String USER = "dse";
-    private static final String PASS = "QWer12#$";
+    private String user = "dse";
+    private String password = "QWer12#$";
 
     public String getSerialNo() {
         return serialNo;
@@ -30,7 +30,11 @@ public class OCSWebMethods {
         this.serialNo = serialNo;
     }
 
-    public OCSWebMethods(String ipAddress, String port) throws ServiceException  {
+    public OCSWebMethods(String ipAddress, String port, String user, String password) throws ServiceException {
+
+        this.user = user;
+        this.password = password;
+
         CBSInterfaceAccountMgrServiceLocator accMgrlocator = new CBSInterfaceAccountMgrServiceLocator();
         accMgrlocator.setCBSInterfaceAccountMgrServicePortEndpointAddress("https://" + ipAddress + ":" + port + "/services/CBSInterfaceAccountMgrService?wsdl");
         portAccMgr = accMgrlocator.getCBSInterfaceAccountMgrServicePort();
@@ -46,13 +50,14 @@ public class OCSWebMethods {
      * @param modifyAcctFeeList
      * @param operatorId
      * @param serialNo
+     * @param transactionId
      * @return
      * @throws RemoteException
      */
-    public AdjustAccountResultMsg adjustAccount(String msisdn, ModifyAcctFeeType[] modifyAcctFeeList, String operatorId, String serialNo) throws RemoteException {
+    public AdjustAccountResultMsg adjustAccount(String msisdn, ModifyAcctFeeType[] modifyAcctFeeList, String operatorId, String serialNo, String transactionId) throws RemoteException {
         AdjustAccountRequestMsg adjustAccountRequestMsg = new AdjustAccountRequestMsg();
 
-        RequestHeader requestHeader = createRequestHeader("AdjustAccount", operatorId, serialNo);
+        RequestHeader requestHeader = createRequestHeader("AdjustAccount", operatorId, serialNo, transactionId);
 
         adjustAccountRequestMsg.setRequestHeader(requestHeader);
 
@@ -116,13 +121,15 @@ public class OCSWebMethods {
      *
      * @param msisdn the prepaid subscriber's number
      * @param operatorId
+     * @param requestSerial
+     * @param transactionId
      * @return QueryBalanceResultMsg
      * @throws RemoteException
      */
-    public QueryBalanceResultMsg queryBalance(String msisdn, String operatorId) throws RemoteException {
+    public QueryBalanceResultMsg queryBalance(String msisdn, String operatorId, String requestSerial, String transactionId) throws RemoteException {
         QueryBalanceRequestMsg queryBalanceRequestMsg = new QueryBalanceRequestMsg();
 
-        RequestHeader requestHeader = createRequestHeader("QueryBalance", operatorId);
+        RequestHeader requestHeader = createRequestHeader("QueryBalance", operatorId, requestSerial, transactionId);
 
         queryBalanceRequestMsg.setRequestHeader(requestHeader);
 
@@ -133,37 +140,11 @@ public class OCSWebMethods {
         return portAccMgr.queryBalance(queryBalanceRequestMsg);
     }
 
-    /**
-     ** <em>valid mode is set to 4050003 if the expiry parameter is passed</em>
-     *
-     * @param msisdn
-     * @param productList
-     * @param operatorID
-     * @return
-     * @throws RemoteException
-     */
-    public SubscribeAppendantProductResultMsg subscribeAppendantProduct(String msisdn, SubscribeAppendantProductRequestProduct[] productList, String operatorID) throws RemoteException {
+    public SubscribeAppendantProductResultMsg subscribeAppendantProduct(String msisdn, SubscribeAppendantProductRequestProduct[] productList, String operatorID, String requestSerial, String transactionId) throws RemoteException {
 
         SubscribeAppendantProductRequestMsg subscribeAppendantProductRequestMsg = new SubscribeAppendantProductRequestMsg();
 
-        RequestHeader requestHeader = createRequestHeader("SubscribeAppendantProduct", operatorID);
-        subscribeAppendantProductRequestMsg.setRequestHeader(requestHeader);
-
-        SubscribeAppendantProductRequest subscribeAppendantProductRequest = new SubscribeAppendantProductRequest();
-        subscribeAppendantProductRequest.setSubscriberNo(msisdn);
-
-        subscribeAppendantProductRequest.setProduct(productList);
-
-        subscribeAppendantProductRequestMsg.setSubscribeAppendantProductRequest(subscribeAppendantProductRequest);
-
-        return portBizMgr.subscribeAppendantProduct(subscribeAppendantProductRequestMsg);
-    }
-
-    public SubscribeAppendantProductResultMsg subscribeAppendantProduct(String msisdn, SubscribeAppendantProductRequestProduct[] productList, String operatorID, String serNo) throws RemoteException {
-
-        SubscribeAppendantProductRequestMsg subscribeAppendantProductRequestMsg = new SubscribeAppendantProductRequestMsg();
-
-        RequestHeader requestHeader = createRequestHeader("SubscribeAppendantProduct", operatorID, serNo);
+        RequestHeader requestHeader = createRequestHeader("SubscribeAppendantProduct", operatorID, requestSerial, transactionId);
         subscribeAppendantProductRequestMsg.setRequestHeader(requestHeader);
 
         SubscribeAppendantProductRequest subscribeAppendantProductRequest = new SubscribeAppendantProductRequest();
@@ -181,13 +162,15 @@ public class OCSWebMethods {
      * @param msisdn
      * @param productId
      * @param operatorId
+     * @param serialNo
+     * @param transactionId
      * @return
      * @throws RemoteException
      */
-    public ResultHeader changeAppendantProduct(String msisdn, String productId, String operatorId) throws RemoteException {
+    public ResultHeader changeAppendantProduct(String msisdn, String productId, String operatorId, String serialNo, String transactionId) throws RemoteException {
         ChangeAppendantProductRequestMsg changeAppendantProductRequestMsg = new ChangeAppendantProductRequestMsg();
 
-        RequestHeader requestHeader = createRequestHeader("ChangeAppendantProduct", operatorId);
+        RequestHeader requestHeader = createRequestHeader("ChangeAppendantProduct", operatorId, serialNo, transactionId);
         changeAppendantProductRequestMsg.setRequestHeader(requestHeader);
 
         ChangeAppendantProductRequest changeAppendantProductRequest = new ChangeAppendantProductRequest();
@@ -208,43 +191,44 @@ public class OCSWebMethods {
 
     }
 
-    public ResultHeader addAppendantProduct(String msisdn, String productId, String operatorId) throws RemoteException {
-        ChangeAppendantProductRequestMsg changeAppendantProductRequestMsg = new ChangeAppendantProductRequestMsg();
-
-        RequestHeader requestHeader = createRequestHeader("ChangeAppendantProduct", operatorId);
-        changeAppendantProductRequestMsg.setRequestHeader(requestHeader);
-
-        ChangeAppendantProductRequest changeAppendantProductRequest = new ChangeAppendantProductRequest();
-        changeAppendantProductRequest.setSubscriberNo(msisdn);
-
-        ChangeAppendantProductRequestProduct product = new ChangeAppendantProductRequestProduct();
-        product.setId(productId);
-        product.setOperationType(ProductOperationType.value1);//adds appendant Product
-        product.setValidMode(ValidMode.value1);
-
-        ChangeAppendantProductRequestProduct[] productList = {product};
-
-        changeAppendantProductRequest.setProduct(productList);
-
-        changeAppendantProductRequestMsg.setChangeAppendantProductRequest(changeAppendantProductRequest);
-
-        return portBizMgr.changeAppendantProduct(changeAppendantProductRequestMsg).getResultHeader();
-
-    }
-
+//    public ResultHeader addAppendantProduct(String msisdn, String productId, String operatorId) throws RemoteException {
+//        ChangeAppendantProductRequestMsg changeAppendantProductRequestMsg = new ChangeAppendantProductRequestMsg();
+//
+//        RequestHeader requestHeader = createRequestHeader("ChangeAppendantProduct", operatorId);
+//        changeAppendantProductRequestMsg.setRequestHeader(requestHeader);
+//
+//        ChangeAppendantProductRequest changeAppendantProductRequest = new ChangeAppendantProductRequest();
+//        changeAppendantProductRequest.setSubscriberNo(msisdn);
+//
+//        ChangeAppendantProductRequestProduct product = new ChangeAppendantProductRequestProduct();
+//        product.setId(productId);
+//        product.setOperationType(ProductOperationType.value1);//adds appendant Product
+//        product.setValidMode(ValidMode.value1);
+//
+//        ChangeAppendantProductRequestProduct[] productList = {product};
+//
+//        changeAppendantProductRequest.setProduct(productList);
+//
+//        changeAppendantProductRequestMsg.setChangeAppendantProductRequest(changeAppendantProductRequest);
+//
+//        return portBizMgr.changeAppendantProduct(changeAppendantProductRequestMsg).getResultHeader();
+//
+//    }
     /**
      *
      * @param msisdn
      * @param newProdId
      * @param operatorId
+     * @param serialNo
+     * @param transcationId
      * @return
      * @throws RemoteException
      */
-    public ChangeMainProdResultMsg changeMainProduct(String msisdn, String newProdId, String operatorId) throws RemoteException {
+    public ChangeMainProdResultMsg changeMainProduct(String msisdn, String newProdId, String operatorId, String serialNo, String transcationId) throws RemoteException {
 
         ChangeMainProdRequestMsg changeMainProdRequestMsg = new ChangeMainProdRequestMsg();
 
-        RequestHeader requestHeader = createRequestHeader("ChangeMainProd", operatorId);
+        RequestHeader requestHeader = createRequestHeader("ChangeMainProd", operatorId, serialNo, transcationId);
 
         changeMainProdRequestMsg.setRequestHeader(requestHeader);
 
@@ -258,10 +242,19 @@ public class OCSWebMethods {
         return portBizMgr.changeMainProd(changeMainProdRequestMsg);
     }
 
-    public ResultHeader blockSubscriber(String msisdn, String operatorId) throws RemoteException {
+    /**
+     *
+     * @param msisdn
+     * @param operatorId
+     * @param serialNo
+     * @param transactionId
+     * @return
+     * @throws RemoteException
+     */
+    public ResultHeader blockSubscriber(String msisdn, String operatorId, String serialNo, String transactionId) throws RemoteException {
         BlockSubscriberRequestMsg blockSubscriberRequestMsg = new BlockSubscriberRequestMsg();
 
-        RequestHeader requestHeader = createRequestHeader("BlockSubscriber", operatorId);
+        RequestHeader requestHeader = createRequestHeader("BlockSubscriber", operatorId, serialNo, transactionId);
         blockSubscriberRequestMsg.setRequestHeader(requestHeader);
 
         BlockSubscriberRequest blockSubscriberRequest = new BlockSubscriberRequest();
@@ -277,14 +270,16 @@ public class OCSWebMethods {
      *
      * @param msisdn
      * @param operatorId
+     * @param serialNo
+     * @param transactionId
      * @return
      * @throws RemoteException
      */
-    public ResultHeader unBlockSubscriber(String msisdn, String operatorId) throws RemoteException {
+    public ResultHeader unBlockSubscriber(String msisdn, String operatorId, String serialNo, String transactionId) throws RemoteException {
 
         BlockSubscriberRequestMsg blockSubscriberRequestMsg = new BlockSubscriberRequestMsg();
 
-        RequestHeader requestHeader = createRequestHeader("BlockSubscriber", operatorId);
+        RequestHeader requestHeader = createRequestHeader("BlockSubscriber", operatorId, serialNo, transactionId);
         blockSubscriberRequestMsg.setRequestHeader(requestHeader);
 
         BlockSubscriberRequest blockSubscriberRequest = new BlockSubscriberRequest();
@@ -302,13 +297,15 @@ public class OCSWebMethods {
      * @param StartTime
      * @param EndTime
      * @param operatorId
+     * @param serialNo
+     * @param transactionId
      * @return
      * @throws RemoteException
      */
-    public QueryAdjustmentLogResultMsg queryAdjustmentLog(String msisdn, String StartTime, String EndTime, String operatorId) throws RemoteException {
+    public QueryAdjustmentLogResultMsg queryAdjustmentLog(String msisdn, String StartTime, String EndTime, String operatorId, String serialNo, String transactionId) throws RemoteException {
         QueryAdjustmentLogRequestMsg queryAdjustmentLogRequestMsg = new QueryAdjustmentLogRequestMsg();
 
-        RequestHeader requestHeader = createRequestHeader("QueryAdjustmentLog", operatorId);
+        RequestHeader requestHeader = createRequestHeader("QueryAdjustmentLog", operatorId, serialNo, transactionId);
         queryAdjustmentLogRequestMsg.setRequestHeader(requestHeader);
 
         QueryAdjustmentLogRequest queryAdjustmentLogRequest = new QueryAdjustmentLogRequest();
@@ -321,9 +318,21 @@ public class OCSWebMethods {
         return portAccMgr.queryAdjustmentLog(queryAdjustmentLogRequestMsg);
     }
 
-    public TransferAccountResultMsg transferAccount(String transferorMsisdn, String transfereeMsisdn, ModifyAcctFeeType account, String operatorId) throws RemoteException {
+    /**
+     *
+     * @param transferorMsisdn
+     * @param transfereeMsisdn
+     * @param account
+     * @param operatorId
+     * @param serialNo
+     * @param transactionId
+     * @return
+     * @throws RemoteException
+     */
+    public TransferAccountResultMsg transferAccount(String transferorMsisdn, String transfereeMsisdn, ModifyAcctFeeType account, String operatorId, String serialNo, String transactionId) throws RemoteException {
         TransferAccountRequestMsg transferAccountRequestMsg = new TransferAccountRequestMsg();
-        RequestHeader requestHeader = createRequestHeader("TransferAccount", operatorId);
+
+        RequestHeader requestHeader = createRequestHeader("TransferAccount", operatorId, serialNo, transactionId);
 
         transferAccountRequestMsg.setRequestHeader(requestHeader);
 
@@ -352,9 +361,21 @@ public class OCSWebMethods {
         return portAccMgr.transferAccount(transferAccountRequestMsg);
     }
 
-    public TransferAccountResultMsg transferAccount(String transferorMsisdn, String transfereeMsisdn, ModifyAcctFeeType account, String operatorId, int chargeHandlingFlag) throws RemoteException {
+    /**
+     *
+     * @param transferorMsisdn
+     * @param transfereeMsisdn
+     * @param account
+     * @param operatorId
+     * @param chargeHandlingFlag
+     * @param serialNo
+     * @param transactionId
+     * @return
+     * @throws RemoteException
+     */
+    public TransferAccountResultMsg transferAccount(String transferorMsisdn, String transfereeMsisdn, ModifyAcctFeeType account, String operatorId, int chargeHandlingFlag, String serialNo, String transactionId) throws RemoteException {
         TransferAccountRequestMsg transferAccountRequestMsg = new TransferAccountRequestMsg();
-        RequestHeader requestHeader = createRequestHeader("TransferAccount", operatorId);
+        RequestHeader requestHeader = createRequestHeader("TransferAccount", operatorId, serialNo, transactionId);
 
         transferAccountRequestMsg.setRequestHeader(requestHeader);
 
@@ -383,86 +404,86 @@ public class OCSWebMethods {
         return portAccMgr.transferAccount(transferAccountRequestMsg);
     }
 
-    public ResultHeader transferAccount(String transferorMsisdn, String transfereeMsisdn, long amount, String operatorId) throws RemoteException {
-        TransferAccountRequestMsg transferAccountRequestMsg = new TransferAccountRequestMsg();
-        RequestHeader requestHeader = createRequestHeader("TransferAccount", operatorId);
-
-        transferAccountRequestMsg.setRequestHeader(requestHeader);
-
-        TransferAccountRequest transferAccountRequest = new TransferAccountRequest();
-        transferAccountRequest.setHandlingChargeFlag(0);
-        transferAccountRequest.setTransferorNo(transferorMsisdn);
-        transferAccountRequest.setTransfereeNo(transfereeMsisdn);
-        /**
-         * The transfer type below means that the account balance of both
-         * transferor and transferee exist in OCS (same OCS)
-         */
-        transferAccountRequest.setTransferType(2);
-        //TransferAccountRequestModifyAcctFeeList transferAccountRequestModifyAcctFeeList = new TransferAccountRequestModifyAcctFeeList();
-
-        ModifyAcctFeeType account = new ModifyAcctFeeType();
-        account.setAccountType("2000");
-        account.setCurrAcctChgAmt(amount);
-
-        ModifyAcctFeeType modifyAcctFeeType[] = {account};
-        //transferAccountRequestModifyAcctFeeList.setModifyAcctFee(modifyAcctFeeType);
-
-        //transferAccountRequest.setModifyAcctFeeList(transferAccountRequestModifyAcctFeeList);
-        transferAccountRequest.setModifyAcctFeeList(modifyAcctFeeType);
-
-        transferAccountRequestMsg.setTransferAccountRequest(transferAccountRequest);
-
-        return portAccMgr.transferAccount(transferAccountRequestMsg).getResultHeader();
-    }
-
-    public TransferAccountResultMsg transferSubscriberAccount(String transferorMsisdn, String transfereeMsisdn, long amount, String operatorid) throws RemoteException {
-
-        TransferAccountRequestMsg transferAccountRequestMsg = new TransferAccountRequestMsg();
-        RequestHeader requestHeader = createRequestHeader("TransferAccount", operatorid);
-
-        transferAccountRequestMsg.setRequestHeader(requestHeader);
-
-        TransferAccountRequest transferAccountRequest = new TransferAccountRequest();
-        transferAccountRequest.setHandlingChargeFlag(0);
-        transferAccountRequest.setTransferorNo(transferorMsisdn);
-        transferAccountRequest.setTransfereeNo(transfereeMsisdn);
-        /**
-         * The transfer type below means that the account balance of both
-         * transferor and transferee exist in OCS (same OCS)
-         */
-
-        transferAccountRequest.setTransferType(2);
-        //no charge this transaction of transfer
-        transferAccountRequest.setHandlingChargeFlag(0);
-        //TransferAccountRequestModifyAcctFeeList transferAccountRequestModifyAcctFeeList = new TransferAccountRequestModifyAcctFeeList();
-
-        ModifyAcctFeeType account = new ModifyAcctFeeType();
-        account.setAccountType("2000");//main account
-        account.setCurrAcctChgAmt(amount);
-
-        ModifyAcctFeeType modifyAcctFeeType[] = {account};
-        //transferAccountRequestModifyAcctFeeList.setModifyAcctFee(modifyAcctFeeType);
-
-        //transferAccountRequest.setModifyAcctFeeList(transferAccountRequestModifyAcctFeeList);
-        transferAccountRequest.setModifyAcctFeeList(modifyAcctFeeType);
-
-        transferAccountRequestMsg.setTransferAccountRequest(transferAccountRequest);
-
-        return portAccMgr.transferAccount(transferAccountRequestMsg);
-    }
-
+//    public ResultHeader transferAccount(String transferorMsisdn, String transfereeMsisdn, long amount, String operatorId) throws RemoteException {
+//        TransferAccountRequestMsg transferAccountRequestMsg = new TransferAccountRequestMsg();
+//        RequestHeader requestHeader = createRequestHeader("TransferAccount", operatorId);
+//
+//        transferAccountRequestMsg.setRequestHeader(requestHeader);
+//
+//        TransferAccountRequest transferAccountRequest = new TransferAccountRequest();
+//        transferAccountRequest.setHandlingChargeFlag(0);
+//        transferAccountRequest.setTransferorNo(transferorMsisdn);
+//        transferAccountRequest.setTransfereeNo(transfereeMsisdn);
+//        /**
+//         * The transfer type below means that the account balance of both
+//         * transferor and transferee exist in OCS (same OCS)
+//         */
+//        transferAccountRequest.setTransferType(2);
+//        //TransferAccountRequestModifyAcctFeeList transferAccountRequestModifyAcctFeeList = new TransferAccountRequestModifyAcctFeeList();
+//
+//        ModifyAcctFeeType account = new ModifyAcctFeeType();
+//        account.setAccountType("2000");
+//        account.setCurrAcctChgAmt(amount);
+//
+//        ModifyAcctFeeType modifyAcctFeeType[] = {account};
+//        //transferAccountRequestModifyAcctFeeList.setModifyAcctFee(modifyAcctFeeType);
+//
+//        //transferAccountRequest.setModifyAcctFeeList(transferAccountRequestModifyAcctFeeList);
+//        transferAccountRequest.setModifyAcctFeeList(modifyAcctFeeType);
+//
+//        transferAccountRequestMsg.setTransferAccountRequest(transferAccountRequest);
+//
+//        return portAccMgr.transferAccount(transferAccountRequestMsg).getResultHeader();
+//    }
+//    public TransferAccountResultMsg transferSubscriberAccount(String transferorMsisdn, String transfereeMsisdn, long amount, String operatorid) throws RemoteException {
+//
+//        TransferAccountRequestMsg transferAccountRequestMsg = new TransferAccountRequestMsg();
+//        RequestHeader requestHeader = createRequestHeader("TransferAccount", operatorid);
+//
+//        transferAccountRequestMsg.setRequestHeader(requestHeader);
+//
+//        TransferAccountRequest transferAccountRequest = new TransferAccountRequest();
+//        transferAccountRequest.setHandlingChargeFlag(0);
+//        transferAccountRequest.setTransferorNo(transferorMsisdn);
+//        transferAccountRequest.setTransfereeNo(transfereeMsisdn);
+//        /**
+//         * The transfer type below means that the account balance of both
+//         * transferor and transferee exist in OCS (same OCS)
+//         */
+//
+//        transferAccountRequest.setTransferType(2);
+//        //no charge this transaction of transfer
+//        transferAccountRequest.setHandlingChargeFlag(0);
+//        //TransferAccountRequestModifyAcctFeeList transferAccountRequestModifyAcctFeeList = new TransferAccountRequestModifyAcctFeeList();
+//
+//        ModifyAcctFeeType account = new ModifyAcctFeeType();
+//        account.setAccountType("2000");//main account
+//        account.setCurrAcctChgAmt(amount);
+//
+//        ModifyAcctFeeType modifyAcctFeeType[] = {account};
+//        //transferAccountRequestModifyAcctFeeList.setModifyAcctFee(modifyAcctFeeType);
+//
+//        //transferAccountRequest.setModifyAcctFeeList(transferAccountRequestModifyAcctFeeList);
+//        transferAccountRequest.setModifyAcctFeeList(modifyAcctFeeType);
+//
+//        transferAccountRequestMsg.setTransferAccountRequest(transferAccountRequest);
+//
+//        return portAccMgr.transferAccount(transferAccountRequestMsg);
+//    }
     /**
      *
      * @param msisdn
      * @param startTime
      * @param endTime
      * @param operatorId
+     * @param serialNo
+     * @param transcationId
      * @return
      * @throws RemoteException
      */
-    public QueryTransferLogResultMsg queryTransferLog(String msisdn, String startTime, String endTime, String operatorId) throws RemoteException {
+    public QueryTransferLogResultMsg queryTransferLog(String msisdn, String startTime, String endTime, String operatorId, String serialNo, String transcationId) throws RemoteException {
         QueryTransferLogRequestMsg queryTransferLogRequestMsg = new QueryTransferLogRequestMsg();
-        RequestHeader requestHeader = createRequestHeader("QueryTransferLog", operatorId);
+        RequestHeader requestHeader = createRequestHeader("QueryTransferLog", operatorId, serialNo, transcationId);
         queryTransferLogRequestMsg.setRequestHeader(requestHeader);
 
         QueryTransferLogRequest queryTransferLogRequest = new QueryTransferLogRequest();
@@ -476,9 +497,19 @@ public class OCSWebMethods {
         return portAccMgr.queryTransferLog(queryTransferLogRequestMsg);
     }
 
-    public ActiveFirstResultMsg activeFirst(String msisdn, int access_method, String operatorId) throws RemoteException {
+    /**
+     *
+     * @param msisdn
+     * @param access_method
+     * @param operatorId
+     * @param serialNo
+     * @param transactionId
+     * @return
+     * @throws RemoteException
+     */
+    public ActiveFirstResultMsg activeFirst(String msisdn, int access_method, String operatorId, String serialNo, String transactionId) throws RemoteException {
         ActiveFirstRequestMsg activeFirstRequestMsg = new ActiveFirstRequestMsg();
-        RequestHeader requestHeader = createRequestHeader("ActiveFirst", operatorId);
+        RequestHeader requestHeader = createRequestHeader("ActiveFirst", operatorId, serialNo, transactionId);
 
         activeFirstRequestMsg.setRequestHeader(requestHeader);
         ActiveFirstRequest activeFirstRequest = new ActiveFirstRequest();
@@ -573,14 +604,17 @@ public class OCSWebMethods {
      * @param state here are the states 1.suspend 2.reconnect 3.Claim missing 4.
      * Disclaim missing 5.Initiated by Operator 6.Activate Post Paid Acc
      * 7.suspend post-paid Account
+     * @param operatorId
+     * @param serialNo
+     * @param transcationId
      *
      * @return
      * @throws RemoteException
      */
-    public ResultHeader modifySubscriberState(String msisdn, int state, String operatorId) throws RemoteException {
+    public ResultHeader modifySubscriberState(String msisdn, int state, String operatorId, String serialNo, String transcationId) throws RemoteException {
 
         ModifySubscriberStateRequestMsg modifySubscriberStateRequestMsg = new ModifySubscriberStateRequestMsg();
-        RequestHeader requestHeader = createRequestHeader("ModifySubscriberState", operatorId);
+        RequestHeader requestHeader = createRequestHeader("ModifySubscriberState", operatorId, serialNo, transcationId);
         modifySubscriberStateRequestMsg.setRequestHeader(requestHeader);
 
         ModifySubscriberStateRequest modifySubscriberStateRequest = new ModifySubscriberStateRequest();
@@ -596,23 +630,21 @@ public class OCSWebMethods {
      *
      * @param msisdn
      * @param productList
-     * @param productId
      * @param operatorId
+     * @param serialNo
+     * @param transcationId
      * @return
      * @throws RemoteException
      */
-    public UnSubscribeAppendantProductResultMsg unsubscribeAppendantProduct(String msisdn, UnSubscribeAppendantProductRequestProduct productList[], String operatorId) throws RemoteException {
+    public UnSubscribeAppendantProductResultMsg unsubscribeAppendantProduct(String msisdn, UnSubscribeAppendantProductRequestProduct productList[], String operatorId, String serialNo, String transcationId) throws RemoteException {
+
         UnSubscribeAppendantProductRequestMsg unSubscribeAppendantProductRequestMsg = new UnSubscribeAppendantProductRequestMsg();
-        RequestHeader requestHeader = createRequestHeader("UnSubscribeAppendantProduct", operatorId);
+
+        RequestHeader requestHeader = createRequestHeader("UnSubscribeAppendantProduct", operatorId, serialNo, transcationId);
         unSubscribeAppendantProductRequestMsg.setRequestHeader(requestHeader);
 
         UnSubscribeAppendantProductRequest unSubscribeAppendantProductRequest = new UnSubscribeAppendantProductRequest();
         unSubscribeAppendantProductRequest.setSubscriberNo(msisdn);
-
-//        UnSubscribeAppendantProductRequestProduct product = new UnSubscribeAppendantProductRequestProduct();
-//        product.setProductID(productId);
-//        product.setValidMode(ValidMode._value1);
-//        UnSubscribeAppendantProductRequestProduct productList[] = {product};
         unSubscribeAppendantProductRequest.setProduct(productList);
         unSubscribeAppendantProductRequestMsg.setUnSubscribeAppendantProductRequest(unSubscribeAppendantProductRequest);
 
@@ -620,20 +652,21 @@ public class OCSWebMethods {
 
     }
 
-//    public QueryProfileResultMsg queryProfile(String msisdn) throws RemoteException {
-//        QueryProfileRequestMsg queryProfileRequestMsg = new QueryProfileRequestMsg();
-//
-//        RequestHeader requestHeader = createRequestHeader("QueryProfile", OPERATOR_ID);
-//        queryProfileRequestMsg.setRequestHeader(requestHeader);
-//        QueryProfileRequest queryProfileRequest = new QueryProfileRequest();
-//        queryProfileRequest.setSubscriberNo(msisdn);
-//        queryProfileRequestMsg.setQueryProfileRequest(queryProfileRequest);
-//
-//        return portBizMgr.queryProfile(queryProfileRequestMsg);
-//    }
-    public QuerySubscriberProductInfoResultMsg querySubscriberProductInfo(String msisdn, String productId, String operatorId) throws RemoteException {
+    /**
+     *
+     * @param msisdn
+     * @param productId
+     * @param operatorId
+     * @param serialNo
+     * @param transcationId
+     * @return
+     * @throws RemoteException
+     */
+    public QuerySubscriberProductInfoResultMsg querySubscriberProductInfo(String msisdn, String productId, String operatorId, String serialNo, String transcationId) throws RemoteException {
+
         QuerySubscriberProductInfoRequestMsg querySubscriberProductInfoRequestMsg = new QuerySubscriberProductInfoRequestMsg();
-        RequestHeader requestHeader = createRequestHeader("QuerySubscriberProductInfo", operatorId);
+
+        RequestHeader requestHeader = createRequestHeader("QuerySubscriberProductInfo", operatorId, serialNo, transcationId);
 
         querySubscriberProductInfoRequestMsg.setRequestHeader(requestHeader);
 
@@ -646,10 +679,20 @@ public class OCSWebMethods {
 
     }//end of method
 
-    public ResultHeader newSubscriber(String msisdn, String mainProductId, String operatorId) throws RemoteException {
+    /**
+     *
+     * @param msisdn
+     * @param mainProductId
+     * @param operatorId
+     * @param serialNo
+     * @param transactionId
+     * @return
+     * @throws RemoteException
+     */
+    public ResultHeader newSubscriber(String msisdn, String mainProductId, String operatorId, String serialNo, String transactionId) throws RemoteException {
         NewSubscriberRequestMsg newSubscriberRequestMsg = new NewSubscriberRequestMsg();
 
-        RequestHeader requestHeader = createRequestHeader("NewSubscriber", operatorId);
+        RequestHeader requestHeader = createRequestHeader("NewSubscriber", operatorId, serialNo, transactionId);
         newSubscriberRequestMsg.setRequestHeader(requestHeader);
 
         NewSubscriberRequest newSubscriberRequest = new NewSubscriberRequest();
@@ -669,10 +712,19 @@ public class OCSWebMethods {
 
     }
 
-    public QueryBasicInfoResultMsg queryBasicInfo(String msisdn, String operatorId) throws RemoteException {
+    /**
+     *
+     * @param msisdn
+     * @param operatorId
+     * @param serialNo
+     * @param transactionId
+     * @return
+     * @throws RemoteException
+     */
+    public QueryBasicInfoResultMsg queryBasicInfo(String msisdn, String operatorId, String serialNo, String transactionId) throws RemoteException {
         QueryBasicInfoRequestMsg queryBasicInfoRequestMsg = new QueryBasicInfoRequestMsg();
 
-        RequestHeader requestHeader = createRequestHeader("QueryBasicInfo", operatorId);
+        RequestHeader requestHeader = createRequestHeader("QueryBasicInfo", operatorId, serialNo, transactionId);
 
         queryBasicInfoRequestMsg.setRequestHeader(requestHeader);
 
@@ -686,10 +738,21 @@ public class OCSWebMethods {
 
     }
 
-    public ChangeSIMResultMsg changeSIM(String msisdn, String newIMSI, String oldIMSI, String operatorId) throws RemoteException {
+    /**
+     *
+     * @param msisdn
+     * @param newIMSI
+     * @param oldIMSI
+     * @param operatorId
+     * @param serialNo
+     * @param transactionId
+     * @return
+     * @throws RemoteException
+     */
+    public ChangeSIMResultMsg changeSIM(String msisdn, String newIMSI, String oldIMSI, String operatorId, String serialNo, String transactionId) throws RemoteException {
         ChangeSIMRequestMsg changeSIMRequestMsg = new ChangeSIMRequestMsg();
 
-        RequestHeader requestHeader = createRequestHeader("ChangeSIM", operatorId);
+        RequestHeader requestHeader = createRequestHeader("ChangeSIM", operatorId, serialNo, transactionId);
 
         changeSIMRequestMsg.setRequestHeader(requestHeader);
 
@@ -705,9 +768,19 @@ public class OCSWebMethods {
 
     }
 
-    public ManSubFamilyNoResultMsg addSubFamilyNo(String msisdn, String familyNo, String operatorId) throws RemoteException {
+    /**
+     *
+     * @param msisdn
+     * @param familyNo
+     * @param operatorId
+     * @param serialNo
+     * @param transactionId
+     * @return
+     * @throws RemoteException
+     */
+    public ManSubFamilyNoResultMsg addSubFamilyNo(String msisdn, String familyNo, String operatorId, String serialNo, String transactionId) throws RemoteException {
 
-        RequestHeader requestHeader = createRequestHeader("ModifySubFamilyNo", operatorId);
+        RequestHeader requestHeader = createRequestHeader("ModifySubFamilyNo", operatorId, serialNo, transactionId);
 
         ManSubFamilyNoRequestMsg manSubFamilyNoRequestMsg = new ManSubFamilyNoRequestMsg();
         manSubFamilyNoRequestMsg.setRequestHeader(requestHeader);
@@ -730,18 +803,21 @@ public class OCSWebMethods {
     }
 
     /**
-     * This is the new OCS 5.5 Method for adding a child
+     * This is the new method starting from OCS version 5.5 for adding a child
      *
      * @param msisdn the parent line
      * @param child the child line
+     * @param operatorId
+     * @param serialNo
+     * @param transactionId
      * @return
      * @throws RemoteException
      */
-    public ManParentChildResultMsg addChild(String msisdn, String child, String operatorId) throws RemoteException {
+    public ManParentChildResultMsg addChild(String msisdn, String child, String operatorId, String serialNo, String transactionId) throws RemoteException {
 
         ManParentChildRequestMsg mpcrm = new ManParentChildRequestMsg();
 
-        RequestHeader requestHeader = createRequestHeader("ManParentChild", operatorId);
+        RequestHeader requestHeader = createRequestHeader("ManParentChild", operatorId, serialNo, transactionId);
 
         mpcrm.setRequestHeader(requestHeader);
 
@@ -765,9 +841,20 @@ public class OCSWebMethods {
         return portBizMgr.manParentChild(mpcrm);
     }
 
-    public ManSubFamilyNoResultMsg modifySubFamilyNo(String msisdn, String oldFamilyNo, String newFamilyNo, String operatorId) throws RemoteException {
+    /**
+     *
+     * @param msisdn
+     * @param oldFamilyNo
+     * @param newFamilyNo
+     * @param operatorId
+     * @param serialNo
+     * @param transactionId
+     * @return
+     * @throws RemoteException
+     */
+    public ManSubFamilyNoResultMsg modifySubFamilyNo(String msisdn, String oldFamilyNo, String newFamilyNo, String operatorId, String serialNo, String transactionId) throws RemoteException {
 
-        RequestHeader requestHeader = createRequestHeader("ModifySubFamilyNo", operatorId);
+        RequestHeader requestHeader = createRequestHeader("ModifySubFamilyNo", operatorId, serialNo, transactionId);
 
         ManSubFamilyNoRequestMsg manSubFamilyNoRequestMsg = new ManSubFamilyNoRequestMsg();
         manSubFamilyNoRequestMsg.setRequestHeader(requestHeader);
@@ -790,8 +877,18 @@ public class OCSWebMethods {
         return portBizMgr.manSubFamilyNo(manSubFamilyNoRequestMsg);
     }
 
-    public QuerySubFamilyNoResultMsg querySubFamilyNo(String msisdn, String operatorId) throws RemoteException {
-        RequestHeader requestHeader = createRequestHeader("QuerySubFamilyNo", operatorId);
+    /**
+     *
+     * @param msisdn
+     * @param operatorId
+     * @param serialNo
+     * @param transcationId
+     * @return
+     * @throws RemoteException
+     */
+    public QuerySubFamilyNoResultMsg querySubFamilyNo(String msisdn, String operatorId, String serialNo, String transcationId) throws RemoteException {
+
+        RequestHeader requestHeader = createRequestHeader("QuerySubFamilyNo", operatorId, serialNo, transcationId);
 
         QuerySubFamilyNoRequestMsg querySubFamilyNoRequestMsg = new QuerySubFamilyNoRequestMsg();
         querySubFamilyNoRequestMsg.setRequestHeader(requestHeader);
@@ -804,39 +901,19 @@ public class OCSWebMethods {
         return portBizMgr.querySubFamilyNo(querySubFamilyNoRequestMsg);
     }
 
-    public VoucherRechargeResultMsg voucherRecharge(String msisdn, String cardPinNumber, String operatorId) throws RemoteException {
-        RequestHeader requestHeader = createRequestHeader("VoucherRecharge", operatorId);
+    /**
+     *
+     * @param msisdn
+     * @param cardPinNumber
+     * @param operatorId
+     * @param serialNo
+     * @param transactionId
+     * @return
+     * @throws RemoteException
+     */
+    public VoucherRechargeResultMsg voucherRecharge(String msisdn, String cardPinNumber, String operatorId, String serialNo, String transactionId) throws RemoteException {
 
-        VoucherRechargeRequestMsg voucherRechargeRequestMsg = new VoucherRechargeRequestMsg();
-        voucherRechargeRequestMsg.setRequestHeader(requestHeader);
-
-        VoucherRechargeRequest voucherRechargeRequest = new VoucherRechargeRequest();
-        voucherRechargeRequest.setSubscriberNo(msisdn);
-        voucherRechargeRequest.setCardPinNumber(cardPinNumber);
-
-        voucherRechargeRequestMsg.setVoucherRechargeRequest(voucherRechargeRequest);
-        return portAccMgr.voucherRecharge(voucherRechargeRequestMsg);
-
-    }//end of class
-
-    public VoucherRechargeResultMsg VoucherRecharge(String msisdn, String cardPinNumber, String operatorId) throws RemoteException {
-        RequestHeader requestHeader = createRequestHeader("VoucherRecharge", operatorId);
-
-        VoucherRechargeRequestMsg voucherRechargeRequestMsg = new VoucherRechargeRequestMsg();
-        voucherRechargeRequestMsg.setRequestHeader(requestHeader);
-
-        VoucherRechargeRequest voucherRechargeRequest = new VoucherRechargeRequest();
-        voucherRechargeRequest.setSubscriberNo(msisdn);
-        voucherRechargeRequest.setCardPinNumber(cardPinNumber);
-
-        voucherRechargeRequestMsg.setVoucherRechargeRequest(voucherRechargeRequest);
-        return portAccMgr.voucherRecharge(voucherRechargeRequestMsg);
-
-    }//end of class
-
-    public VoucherRechargeResultMsg voucherRechargeSubscriber(String msisdn, String cardPinNumber, String operatorId) throws RemoteException {
-
-        RequestHeader requestHeader = createRequestHeader("VoucherRecharge", operatorId);
+        RequestHeader requestHeader = createRequestHeader("VoucherRecharge", operatorId, serialNo, transactionId);
 
         VoucherRechargeRequestMsg voucherRechargeRequestMsg = new VoucherRechargeRequestMsg();
         voucherRechargeRequestMsg.setRequestHeader(requestHeader);
@@ -866,13 +943,15 @@ public class OCSWebMethods {
      * </ol>
      * <em>the default value is 0</em>
      * @param operatorId
+     * @param serialNo
+     * @param transcationId
      * @return
      * @throws java.rmi.RemoteException
      *
      */
-    public IntegrationEnquiryResultMsg integrationEnquiry(String msisdn, String QueryType, String operatorId) throws RemoteException {
+    public IntegrationEnquiryResultMsg integrationEnquiry(String msisdn, String QueryType, String operatorId, String serialNo, String transcationId) throws RemoteException {
 
-        RequestHeader requestHeader = createRequestHeader("IntegrationEnquiry", operatorId);
+        RequestHeader requestHeader = createRequestHeader("IntegrationEnquiry", operatorId, serialNo, transcationId);
 
         IntegrationEnquiryRequestMsg integrationEnquiryRequestMsg = new IntegrationEnquiryRequestMsg();
         integrationEnquiryRequestMsg.setRequestHeader(requestHeader);
@@ -902,9 +981,22 @@ public class OCSWebMethods {
         return portBizMgr.integrationEnquiry(integrationEnquiryRequestMsg);
     }
 
-    public ManParentChildResultMsg ManParentChild(String msisdn, String childSubNo, int childSubType, int limit, int operationType, String operatorId) throws RemoteException {
+    /**
+     *
+     * @param msisdn
+     * @param childSubNo
+     * @param childSubType
+     * @param limit
+     * @param operationType
+     * @param operatorId
+     * @param serialNo
+     * @param transcationId
+     * @return
+     * @throws RemoteException
+     */
+    public ManParentChildResultMsg ManParentChild(String msisdn, String childSubNo, int childSubType, int limit, int operationType, String operatorId, String serialNo, String transcationId) throws RemoteException {
 
-        RequestHeader requestHeader = createRequestHeader("ManParentChild", operatorId);
+        RequestHeader requestHeader = createRequestHeader("ManParentChild", operatorId, serialNo, transcationId);
 
         ManParentChildRequestMsg manParentChildRequestMsg = new ManParentChildRequestMsg();
 
@@ -927,9 +1019,19 @@ public class OCSWebMethods {
         return portBizMgr.manParentChild(manParentChildRequestMsg);
     }
 
-    public ManParentChildResultMsg removeChild(String msisdn, String childSubNo, String operatorId) throws RemoteException {
+    /**
+     * 
+     * @param msisdn
+     * @param childSubNo
+     * @param operatorId
+     * @param serialNo
+     * @param transactionId
+     * @return
+     * @throws RemoteException 
+     */
+    public ManParentChildResultMsg removeChild(String msisdn, String childSubNo, String operatorId,String serialNo,String transactionId) throws RemoteException {
 
-        RequestHeader requestHeader = createRequestHeader("ManParentChild", operatorId);
+        RequestHeader requestHeader = createRequestHeader("ManParentChild", operatorId,serialNo, transactionId);
 
         ManParentChildRequestMsg manParentChildRequestMsg = new ManParentChildRequestMsg();
 
@@ -948,51 +1050,50 @@ public class OCSWebMethods {
         return portBizMgr.manParentChild(manParentChildRequestMsg);
     }
 
-    private RequestHeader createRequestHeader(String commandId, String operatorId) {
+//    private RequestHeader createRequestHeader(String commandId, String operatorId) {
+//        RequestHeader requestHeader = new RequestHeader();
+//
+//        requestHeader.setCommandId(commandId);
+//        requestHeader.setVersion("1");
+//        requestHeader.setTransactionId("1");
+//        requestHeader.setSequenceId("1");
+//        requestHeader.setRequestType(RequestHeaderRequestType.Event);
+//        requestHeader.setOperatorID(operatorId);
+//
+//        SessionEntityType sessionEntityType = new SessionEntityType();
+//        sessionEntityType.setName(user);
+//        sessionEntityType.setPassword(password);
+//        sessionEntityType.setRemoteAddress("172.27.122.45");
+//        requestHeader.setSessionEntity(sessionEntityType);
+//
+//        //randomise the serial number for each request
+//        char alphaNumeral[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+//            'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+//            'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+//            'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+//        Random random = new Random();
+//
+//        //set the serial thru a mutator Method
+//        setSerialNo(alphaNumeral[random.nextInt(alphaNumeral.length)] + "" + random.nextLong());
+//
+//        //retrieve the serial thru a mutator Method
+//        requestHeader.setSerialNo(getSerialNo());
+//
+//        return requestHeader;
+//    }
+    private RequestHeader createRequestHeader(String commandId, String operatorId, String serialNo, String transactionId) {
         RequestHeader requestHeader = new RequestHeader();
 
         requestHeader.setCommandId(commandId);
         requestHeader.setVersion("1");
-        requestHeader.setTransactionId("1");
+        requestHeader.setTransactionId(transactionId);
         requestHeader.setSequenceId("1");
         requestHeader.setRequestType(RequestHeaderRequestType.Event);
         requestHeader.setOperatorID(operatorId);
 
         SessionEntityType sessionEntityType = new SessionEntityType();
-        sessionEntityType.setName(USER);
-        sessionEntityType.setPassword(PASS);
-        sessionEntityType.setRemoteAddress("172.27.122.45");
-        requestHeader.setSessionEntity(sessionEntityType);
-
-        //randomise the serial number for each request
-        char alphaNumeral[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
-            'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
-            'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-            'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-        Random random = new Random();
-
-        //set the serial thru a mutator Method
-        setSerialNo(alphaNumeral[random.nextInt(alphaNumeral.length)] + "" + random.nextLong());
-
-        //retrieve the serial thru a mutator Method
-        requestHeader.setSerialNo(getSerialNo());
-
-        return requestHeader;
-    }
-
-    private RequestHeader createRequestHeader(String commandId, String operatorId, String serialNo) {
-        RequestHeader requestHeader = new RequestHeader();
-
-        requestHeader.setCommandId(commandId);
-        requestHeader.setVersion("1");
-        requestHeader.setTransactionId("1");
-        requestHeader.setSequenceId("1");
-        requestHeader.setRequestType(RequestHeaderRequestType.Event);
-        requestHeader.setOperatorID(operatorId);
-
-        SessionEntityType sessionEntityType = new SessionEntityType();
-        sessionEntityType.setName(USER);
-        sessionEntityType.setPassword(PASS);
+        sessionEntityType.setName(user);
+        sessionEntityType.setPassword(password);
         sessionEntityType.setRemoteAddress("172.27.122.45");
         requestHeader.setSessionEntity(sessionEntityType);
 
@@ -1014,29 +1115,29 @@ public class OCSWebMethods {
      * @return
      * @throws RemoteException
      */
-    public ResultHeader addAppendantMultiProduct(String msisdn, String productId, String productId1, String operatorId) throws RemoteException {
-        SubscribeAppendantProductRequestMsg subscribeAppendantProductRequestMsg = new SubscribeAppendantProductRequestMsg();
-        RequestHeader requestHeader = createRequestHeader("subscribeAppendantProduct", "IBM-UG");
-        subscribeAppendantProductRequestMsg.setRequestHeader(requestHeader);
-        SubscribeAppendantProductRequest subscribeAppendantProductRequest = new SubscribeAppendantProductRequest();
-        subscribeAppendantProductRequest.setSubscriberNo(msisdn);
-        SubscribeAppendantProductRequestProduct products[] = new SubscribeAppendantProductRequestProduct[2];
-        SubscribeAppendantProductRequestProduct product;
-
-        //set product 1 
-        product = new SubscribeAppendantProductRequestProduct();
-        product.setId(productId);
-        product.setValidMode(ValidMode.value1);
-        products[0] = product;
-
-        //set product 2 
-        product = new SubscribeAppendantProductRequestProduct();
-        product.setId(productId1);
-        product.setValidMode(ValidMode.value1);
-        products[1] = product;
-        subscribeAppendantProductRequest.setProduct(products);
-        subscribeAppendantProductRequestMsg.setSubscribeAppendantProductRequest(subscribeAppendantProductRequest);
-        return portBizMgr.subscribeAppendantProduct(subscribeAppendantProductRequestMsg).getResultHeader();
-    }
+//    public ResultHeader addAppendantMultiProduct(String msisdn, String productId, String productId1, String operatorId) throws RemoteException {
+//        SubscribeAppendantProductRequestMsg subscribeAppendantProductRequestMsg = new SubscribeAppendantProductRequestMsg();
+//        RequestHeader requestHeader = createRequestHeader("subscribeAppendantProduct", "IBM-UG");
+//        subscribeAppendantProductRequestMsg.setRequestHeader(requestHeader);
+//        SubscribeAppendantProductRequest subscribeAppendantProductRequest = new SubscribeAppendantProductRequest();
+//        subscribeAppendantProductRequest.setSubscriberNo(msisdn);
+//        SubscribeAppendantProductRequestProduct products[] = new SubscribeAppendantProductRequestProduct[2];
+//        SubscribeAppendantProductRequestProduct product;
+//
+//        //set product 1 
+//        product = new SubscribeAppendantProductRequestProduct();
+//        product.setId(productId);
+//        product.setValidMode(ValidMode.value1);
+//        products[0] = product;
+//
+//        //set product 2 
+//        product = new SubscribeAppendantProductRequestProduct();
+//        product.setId(productId1);
+//        product.setValidMode(ValidMode.value1);
+//        products[1] = product;
+//        subscribeAppendantProductRequest.setProduct(products);
+//        subscribeAppendantProductRequestMsg.setSubscribeAppendantProductRequest(subscribeAppendantProductRequest);
+//        return portBizMgr.subscribeAppendantProduct(subscribeAppendantProductRequestMsg).getResultHeader();
+//    }
 
 }//end of Class

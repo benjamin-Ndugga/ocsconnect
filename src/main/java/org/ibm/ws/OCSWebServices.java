@@ -73,11 +73,14 @@ public class OCSWebServices {
     private final BcServices_PortType bcServicesPort;
     private final BbServices_PortType bbServices_Port;
 
-    private static final String LOGIN_SYSTEM_CODE = "dse";
-    private static final String PASSWORD = "QWer12#$";
+    private String user = "dse";
+    private String password = "QWer12#$";
     private String messageSequence;
 
-    public OCSWebServices(String ip, String port) throws ServiceException {
+    public OCSWebServices(String ip, String port, String user, String password) throws ServiceException {
+
+        this.user = user;
+        this.password = password;
 
         BcServices_ServiceLocator serviceLocator = new BcServices_ServiceLocator();
         serviceLocator.setBcServicesPortEndpointAddress("https://" + ip + ":" + port + "/services/BcServices");
@@ -467,8 +470,8 @@ public class OCSWebServices {
         requestHeader.setOwnershipInfo(ownershipInfo);
 
         SecurityInfo securityInfo = new SecurityInfo();
-        securityInfo.setLoginSystemCode(LOGIN_SYSTEM_CODE);
-        securityInfo.setPassword(PASSWORD);
+        securityInfo.setLoginSystemCode(user);
+        securityInfo.setPassword(password);
 
         requestHeader.setAccessSecurity(securityInfo);
 
@@ -528,8 +531,8 @@ public class OCSWebServices {
         requestHeader.setOwnershipInfo(ownershipInfo);
 
         SecurityInfo securityInfo = new SecurityInfo();
-        securityInfo.setLoginSystemCode(LOGIN_SYSTEM_CODE);
-        securityInfo.setPassword(PASSWORD);
+        securityInfo.setLoginSystemCode(user);
+        securityInfo.setPassword(password);
 
         requestHeader.setAccessSecurity(securityInfo);
 
