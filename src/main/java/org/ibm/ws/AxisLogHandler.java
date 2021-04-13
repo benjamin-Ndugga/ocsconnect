@@ -19,7 +19,6 @@ public class AxisLogHandler extends BasicHandler {
     @Override
     public void invoke(MessageContext mc) throws AxisFault {
         try {
-            System.out.println("invoke message...");
             logMessage(mc);
         } catch (Exception ex) {
             LOGGER.log(Level.SEVERE, null, ex);

@@ -571,8 +571,6 @@ public class OCSWebServices {
     }
 
     private SimpleProvider configureAxisLogger() {
-        System.out.println("Create Configuration...");
-        
         SimpleProvider clientConfig = new SimpleProvider();
         AxisLogHandler logHandler = new AxisLogHandler();
         SimpleChain reqHandler = new SimpleChain();
