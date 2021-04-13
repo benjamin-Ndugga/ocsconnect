@@ -62,6 +62,13 @@ import java.rmi.RemoteException;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import javax.xml.rpc.ServiceException;
+import org.apache.axis.Handler;
+import org.apache.axis.SimpleChain;
+import org.apache.axis.SimpleTargetedChain;
+import org.apache.axis.client.AxisClient;
+import org.apache.axis.configuration.SimpleProvider;
+import org.apache.axis.transport.http.HTTPSender;
+import org.apache.axis.transport.http.HTTPTransport;
 import org.apache.commons.lang3.RandomStringUtils;
 
 /**
@@ -81,13 +88,20 @@ public class OCSWebServices {
 
         BcServices_ServiceLocator serviceLocator = new BcServices_ServiceLocator();
         serviceLocator.setBcServicesPortEndpointAddress("https://" + ip + ":" + port + "/services/BcServices");
+        SimpleProvider configureAxisLogger = configureAxisLogger();
+        serviceLocator.setEngineConfiguration(configureAxisLogger);
+        serviceLocator.setEngine(new AxisClient(configureAxisLogger));
 
         bcServicesPort = serviceLocator.getBcServicesPort();
 
         BbServices_ServiceLocator bbServices_ServiceLocator = new BbServices_ServiceLocator();
         bbServices_ServiceLocator.setBbServicesPortEndpointAddress("https://" + ip + ":" + port + "/services/BbServices");
-
+        SimpleProvider configureAxisLogger1 = configureAxisLogger();
+        bbServices_ServiceLocator.setEngineConfiguration(configureAxisLogger1);
+        bbServices_ServiceLocator.setEngine(new AxisClient(configureAxisLogger1));
+        
         bbServices_Port = bbServices_ServiceLocator.getBbServicesPort();
+        
     }
 
     /**
@@ -554,6 +568,21 @@ public class OCSWebServices {
 //        return alphaNumeral[random.nextInt(alphaNumeral.length)] + "" + random.nextLong();
         return RandomStringUtils.random(2, true, false).toUpperCase() + "" + Math.abs(ThreadLocalRandom.current().nextLong(1, 999999999));
 
+    }
+
+    private SimpleProvider configureAxisLogger() {
+        System.out.println("Create Configuration...");
+        
+        SimpleProvider clientConfig = new SimpleProvider();
+        AxisLogHandler logHandler = new AxisLogHandler();
+        SimpleChain reqHandler = new SimpleChain();
+        SimpleChain respHandler = new SimpleChain();
+        reqHandler.addHandler(logHandler);
+        respHandler.addHandler(logHandler);
+        Handler pivot = new HTTPSender();
+        Handler transport = new SimpleTargetedChain(reqHandler, pivot, respHandler);
+        clientConfig.deployTransport(HTTPTransport.DEFAULT_TRANSPORT_NAME, transport);
+        return clientConfig;
     }
 
 //    public static void main(String[] args) throws ServiceException, RemoteException, InterruptedException {

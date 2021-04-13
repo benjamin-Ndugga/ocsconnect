@@ -626,6 +626,7 @@ com\huawei\www\bme\cbsinterface\cbs\accountmgr\PaymentEnquiryResultPaymentLogPay
 com\huawei\www\bme\cbsinterface\cbs\businessmgr\QuerySubChangeLogResult.class
 com\huawei\www\bme\cbsinterface\bccustomizedservices\JoinSuperGroupRequest.class
 com\huawei\www\bme\cbsinterface\bccustomizedservices\BatchScatteredSubActivationRequest.class
+org\ibm\ws\AxisLogHandler.class
 com\huawei\www\bme\cbsinterface\bcservices\ChangeSubInfoRequest.class
 com\huawei\www\bme\cbsinterface\bcservices\ChkPrefixOpRequest.class
 com\huawei\www\bme\cbsinterface\cbs\businessmgrmsg\QuerySubHomeZoneResultMsg.class
