@@ -8,6 +8,13 @@ import com.huawei.www.bme.cbsinterface.common.*;
 import java.rmi.RemoteException;
 import java.util.Random;
 import javax.xml.rpc.ServiceException;
+import org.apache.axis.Handler;
+import org.apache.axis.SimpleChain;
+import org.apache.axis.SimpleTargetedChain;
+import org.apache.axis.client.AxisClient;
+import org.apache.axis.configuration.SimpleProvider;
+import org.apache.axis.transport.http.HTTPSender;
+import org.apache.axis.transport.http.HTTPTransport;
 
 /**
  * <em>Service Endpoint Interface To OCS 5.5</em>
@@ -30,13 +37,23 @@ public class OCSWebMethods {
         this.serialNo = serialNo;
     }
 
-    public OCSWebMethods(String ipAddress, String port) throws ServiceException  {
+    public OCSWebMethods(String ipAddress, String port) throws ServiceException {
         CBSInterfaceAccountMgrServiceLocator accMgrlocator = new CBSInterfaceAccountMgrServiceLocator();
         accMgrlocator.setCBSInterfaceAccountMgrServicePortEndpointAddress("https://" + ipAddress + ":" + port + "/services/CBSInterfaceAccountMgrService?wsdl");
+
+        SimpleProvider configureAxisLogger = configureAxisLogger();
+        accMgrlocator.setEngineConfiguration(configureAxisLogger);
+        accMgrlocator.setEngine(new AxisClient(configureAxisLogger));
+
         portAccMgr = accMgrlocator.getCBSInterfaceAccountMgrServicePort();
 
         CBSInterfaceBusinessMgrServiceLocator bizlocator = new CBSInterfaceBusinessMgrServiceLocator();
         bizlocator.setCBSInterfaceBusinessMgrServicePortEndpointAddress("https://" + ipAddress + ":" + port + "/services/CBSInterfaceBusinessMgrService?wsdl");
+
+        SimpleProvider configureAxisLogger1 = configureAxisLogger();
+        bizlocator.setEngineConfiguration(configureAxisLogger1);
+        bizlocator.setEngine(new AxisClient(configureAxisLogger1));
+
         portBizMgr = bizlocator.getCBSInterfaceBusinessMgrServicePort();
     }
 
@@ -1037,6 +1054,19 @@ public class OCSWebMethods {
         subscribeAppendantProductRequest.setProduct(products);
         subscribeAppendantProductRequestMsg.setSubscribeAppendantProductRequest(subscribeAppendantProductRequest);
         return portBizMgr.subscribeAppendantProduct(subscribeAppendantProductRequestMsg).getResultHeader();
+    }
+
+    private SimpleProvider configureAxisLogger() {
+        SimpleProvider clientConfig = new SimpleProvider();
+        AxisLogHandler logHandler = new AxisLogHandler();
+        SimpleChain reqHandler = new SimpleChain();
+        SimpleChain respHandler = new SimpleChain();
+        reqHandler.addHandler(logHandler);
+        respHandler.addHandler(logHandler);
+        Handler pivot = new HTTPSender();
+        Handler transport = new SimpleTargetedChain(reqHandler, pivot, respHandler);
+        clientConfig.deployTransport(HTTPTransport.DEFAULT_TRANSPORT_NAME, transport);
+        return clientConfig;
     }
 
 }//end of Class
